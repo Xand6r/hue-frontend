@@ -1,0 +1,94 @@
+/**
+ * @license
+ *
+ * Font Family: Spline Sans
+ * Designed by: Eben Sorkin, Mirko Velimirović
+ * URL: https://www.fontshare.com/fonts/spline-sans
+ * © 2022 Indian Type Foundry
+ *
+ * Font Styles:
+ * Spline Sans Variable(Variable font)
+ * Spline Sans Light
+ * Spline Sans Regular
+ * Spline Sans Medium
+ * Spline Sans Semi Bold
+ * Spline Sans Bold
+ *
+*/
+
+
+/**
+* This is a variable font
+* You can controll variable axes as shown below:
+* font-variation-settings: 'wght' 400.0;
+*
+* available axes:
+
+* 'wght' (range from 300.0 to 700.0)
+
+*/
+
+@font-face {
+  font-family: 'SplineSans-Variable';
+  src: url('../fonts/SplineSans-Variable.woff2') format('woff2'),
+       url('../fonts/SplineSans-Variable.woff') format('woff'),
+       url('../fonts/SplineSans-Variable.ttf') format('truetype');
+       font-weight: 300 700;
+       font-display: swap;
+       font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'SplineSans-Light';
+  src: url('../fonts/SplineSans-Light.woff2') format('woff2'),
+       url('../fonts/SplineSans-Light.woff') format('woff'),
+       url('../fonts/SplineSans-Light.ttf') format('truetype');
+       font-weight: 300;
+       font-display: swap;
+       font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'SplineSans-Regular';
+  src: url('../fonts/SplineSans-Regular.woff2') format('woff2'),
+       url('../fonts/SplineSans-Regular.woff') format('woff'),
+       url('../fonts/SplineSans-Regular.ttf') format('truetype');
+       font-weight: 400;
+       font-display: swap;
+       font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'SplineSans-Medium';
+  src: url('../fonts/SplineSans-Medium.woff2') format('woff2'),
+       url('../fonts/SplineSans-Medium.woff') format('woff'),
+       url('../fonts/SplineSans-Medium.ttf') format('truetype');
+       font-weight: 500;
+       font-display: swap;
+       font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'SplineSans-SemiBold';
+  src: url('../fonts/SplineSans-SemiBold.woff2') format('woff2'),
+       url('../fonts/SplineSans-SemiBold.woff') format('woff'),
+       url('../fonts/SplineSans-SemiBold.ttf') format('truetype');
+       font-weight: 600;
+       font-display: swap;
+       font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'SplineSans-Bold';
+  src: url('../fonts/SplineSans-Bold.woff2') format('woff2'),
+       url('../fonts/SplineSans-Bold.woff') format('woff'),
+       url('../fonts/SplineSans-Bold.ttf') format('truetype');
+       font-weight: 700;
+       font-display: swap;
+       font-style: normal;
+}
