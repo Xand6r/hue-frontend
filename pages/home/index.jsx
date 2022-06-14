@@ -3,6 +3,7 @@ import NavBar from "components/navbar";
 import Landing from "./components/landing";
 import SubLanding from "./components/sublanding";
 import Events from "./components/events";
+import Private from "./components/private";
 
 function HomePage() {
   return (
@@ -11,6 +12,7 @@ function HomePage() {
       <Landing />
       <SubLanding />
       <Events />
+      <Private />
     </div>
   );
 }
