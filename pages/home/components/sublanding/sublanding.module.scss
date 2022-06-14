@@ -1,0 +1,38 @@
+@import "/styles/variables.scss";
+
+.sublanding{
+    padding-top: 4.6875rem;
+    background-color: $dark-crayola;
+    color: white;
+    display: flex;
+    justify-content: center;
+    gap: 10.375rem;
+
+
+    .left_section{
+        .heading{
+            font-size: 3.25rem;
+            max-width: 29.8125rem;
+            font-family: $regular-font;
+            line-height: 4.75rem;
+        }
+        background-image: url("/images/taglineimage.svg");
+        background-repeat: no-repeat;
+        background-position-y: 2.9rem;
+        background-size: contain;
+    }
+    .right_section{
+        .text_content{
+            color: #CAC8C6;
+            font-family: $regular-font;
+            max-width: 31rem;
+            font-size: 1.25rem;
+            line-height: 2.0625rem;
+            margin-top: 1rem;
+        }
+    }
+    .image_container{
+        position: relative;
+        bottom: -4.625rem;
+    }
+}

@@ -1,0 +1,47 @@
+@import "styles/variables.scss";
+
+.navbar{
+    height: 6.25rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    gap: 13.75rem;
+    font-family: $regular-font;
+    
+    background-color: transparent;
+    color: white;
+
+    .left_section{
+        display: flex;
+        font-size: 1rem;
+        text-transform: capitalize;
+        gap: 2.1875rem;
+
+        & > div{
+            cursor: pointer;
+        }
+    }
+
+    .logo_container{
+        width: 111px;
+        height: 53px;
+    }
+
+    .right_section{
+        display: flex;
+        gap: 1.875rem;
+        align-items: center;
+
+        & > div{
+             cursor: pointer;
+        }
+        
+        .reservation_button{
+            padding: 0.9375rem  1.875rem;
+            background: #FFFFFF;
+            color: black;
+        }
+    }
+}

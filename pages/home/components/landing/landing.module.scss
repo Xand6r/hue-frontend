@@ -1,0 +1,14 @@
+@import "styles/variables.scss";
+
+.landing{
+    margin-top: -100px;
+    background-image: url("/images/homelanding.png");
+    background-color: rgba(19, 22, 22,  0.3);
+    background-blend-mode: multiply;
+    height: 40.3125rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
