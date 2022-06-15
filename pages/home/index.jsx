@@ -5,6 +5,7 @@ import SubLanding from "./components/sublanding";
 import Events from "./components/events";
 import Private from "./components/private";
 import Footer from "components/footer";
+import Gallery from "./components/gallery";
 
 function HomePage() {
   return (
@@ -14,6 +15,7 @@ function HomePage() {
       <SubLanding />
       <Events />
       <Private />
+      <Gallery />
       <Footer />
     </div>
   );

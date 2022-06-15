@@ -31,6 +31,7 @@
             margin-bottom: 1.875rem;
             font-weight: 300;
             font-size: 1rem;
+            font-family: $light-font;
         }
 
         .input_wrapper{
@@ -40,7 +41,7 @@
                 width: 28.1875rem;
                 height: 3.4375rem;
                 border: 1px solid $spanish-grey;
-                font-family: $regular-font;
+                font-family: $light-font;
                 outline: none;
                 border: 1px solid $spanish-grey;
                 background-color: $dark-crayola;
@@ -63,6 +64,9 @@
     .bottom{
         display: flex;
         justify-content: space-between;
+        max-width: 1140px;
+        margin: auto;
+
         .first_line{
             .text{
                 margin-top: 1.1875rem;
