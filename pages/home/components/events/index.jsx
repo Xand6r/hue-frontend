@@ -29,7 +29,7 @@ export default function index() {
       <div className={styles.bottom_section}>
         {EVENTS.map((oneEvent) => {
           const { imageName: image } = oneEvent;
-          return <Event image={image} />;
+          return <Event key={image} image={image} />;
         })}
       </div>
     </div>

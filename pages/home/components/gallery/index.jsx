@@ -24,7 +24,7 @@ export default function Gallery() {
       <section className={styles.image_container_wrapper}>
         <div className={styles.image_container}>
           {IMAGE_DETAILS.map((oneImage) => (
-            <ImageRender {...oneImage} />
+            <ImageRender key={oneImage.orientation} {...oneImage} />
           ))}
         </div>
       </section>
