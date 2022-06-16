@@ -8,7 +8,7 @@ const EventCard = ({ image }) => {
   return (
     <div className={styles.eventcard}>
       <div className={styles.eventimage}>
-        <Image src={image} height={263} width={359} />
+        <Image src={image} layout="fill"/>
       </div>
       <div className={styles.eventcontent}>
         <div className={styles.datetime}>

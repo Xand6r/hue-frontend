@@ -1,4 +1,5 @@
 @import "styles/variables.scss";
+@import "styles/partials/_mixins.scss";
 
 .event{
     padding-top: 12.375rem;
@@ -8,6 +9,28 @@
     flex-direction: column;
     max-width: 1139px;
     margin: auto;
+
+
+    @include tab-breakpoint(){
+        padding-top: 111px;
+        padding-left: $tab-padding-x;
+        padding-right: $tab-padding-x;
+    }
+
+    @include mobile-breakpoint(){
+        padding-left: $mobile-padding-x;
+        padding-right: $mobile-padding-x;
+        padding-bottom: 100px;
+    }
+
+    .progress_bar{
+        display: none;
+        @include tab-breakpoint(){
+            display: block;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+    }
 
 
     .top_section{
@@ -20,7 +43,12 @@
 
         .header__text{
             font-size: 2.25rem;
+
+            @include tab-breakpoint(){
+                font-size: 24px;
+            }
         }
+
 
         .action_button{
             font-size: 1.125rem;
@@ -31,6 +59,77 @@
             cursor: pointer;
             border: 1px solid $dark-crayola;
             box-sizing: border-box;
+            transition: $fast-transition-speed;
+
+            &:hover{
+                background-color: $dark-crayola;
+                color: white;
+                svg{
+                    fill: $dark-crayola;
+                    path{
+                        stroke: white;
+                    }
+                }
+            }
+
+
+            &:active{
+                background-color:white;
+                color: $dark-crayola;
+                svg{
+                    fill: white;
+                    path{
+                        stroke: $dark-crayola;
+                    }
+                }
+            }
+
+
+            @include tab-breakpoint(){
+                display: none;
+            }
+        }
+    }
+    
+    .action_button_mobile{
+        margin-top: 45px;
+        font-size: 1.125rem;
+        gap: 12px;
+        font-size: 16px;
+        width: 188px;
+        height: 49px;
+        justify-content: center;
+        align-items: center;
+        font-family: $regular-font;
+        cursor: pointer;
+        border: 1px solid $dark-crayola;
+        box-sizing: border-box;
+        display: none;
+        
+        @include tab-breakpoint(){
+            display: flex;
+        }
+
+        transition: $fast-transition-speed;
+        &:hover{
+            background-color: $dark-crayola;
+            color: white;
+            svg{
+                fill: $dark-crayola;
+                path{
+                    stroke: white;
+                }
+            }
+        }
+        &:active{
+            background-color:white;
+            color: $dark-crayola;
+            svg{
+                fill: white;
+                path{
+                    stroke: $dark-crayola;
+                }
+            }
         }
     }
 
@@ -38,9 +137,19 @@
         border-top: 1px solid #CAC8C7;
         margin-top: 2.25rem;
         padding-top: 3.125rem;
-
         display: flex;
         justify-content: space-between;
+
+        @include tab-breakpoint(){
+            display: none;
+        }
+    }
+
+    .bottom_section_mobile{
+        display: none;
+        @include tab-breakpoint(){
+            display: block;
+        }
     }
 
 }

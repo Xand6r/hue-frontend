@@ -1,4 +1,6 @@
 @import "/styles/variables.scss";
+@import "styles/partials/_mixins.scss";
+
 
 .sublanding{
     padding-top: 4.6875rem;
@@ -8,6 +10,38 @@
     justify-content: center;
     gap: 10.375rem;
 
+    @include tab-breakpoint(){
+        gap: 0;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 $tab-padding-x;
+        padding-top: 60px;
+    }
+
+    @include mobile-breakpoint(){
+        padding: 0 $mobile-padding-x;
+        padding-top: 40px;
+    }
+
+    .reservation_button{
+        background: #FFFFFF;
+        color: black;
+        width: 189px;
+        height: 49px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: $regular-font;
+        font-size: 16px;
+        margin-top: 40px;
+        margin-bottom: 23px;
+
+        display: none;
+        @include mobile-breakpoint(){
+            display: flex;
+        }
+    }
+
 
     .left_section{
         .heading{
@@ -15,11 +49,21 @@
             max-width: 29.8125rem;
             font-family: $regular-font;
             line-height: 4.75rem;
+
+            @include mobile-breakpoint(){
+                font-size: 32px;
+                line-height: 146.8%;
+                max-width: 284px;
+                margin-left: -60px; //sorry, little hack to make it left aligned smh
+            }
         }
         background-image: url("/images/taglineimage.svg");
         background-repeat: no-repeat;
         background-position-y: 2.9rem;
         background-size: contain;
+        @include tab-breakpoint(){
+            background: $dark-crayola;
+        }
     }
     .right_section{
         .text_content{
@@ -29,10 +73,29 @@
             font-size: 1.25rem;
             line-height: 2.0625rem;
             margin-top: 1rem;
+
+            @include mobile-breakpoint(){
+                max-width: 306px;
+                font-size: 16px;
+                margin-top: 20px;
+            }
         }
     }
     .image_container{
         position: relative;
         bottom: -4.625rem;
+        width: 31rem;
+        height: 31rem;
+
+        @include tab-breakpoint{
+            width: 100%;
+        }
+
+        @include mobile-breakpoint(){
+            width: 327px;
+            height: 322px;
+            bottom: -35px;
+        }
+
     }
 }

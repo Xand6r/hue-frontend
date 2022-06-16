@@ -9,13 +9,27 @@ $bold-font: SplineSans-SemiBold;
 
 
 // define paddings for easy responsiveness
-$padding-x: 150px;
+$padding-x: 10.714rem;
+$mobile-padding-x: 24px;
+$tab-padding-x: 7.142rem;
 // define paddings for easy responsiveness
 
 
 // define teh different colors to be used in the application
 $dark-crayola: #131616;
 $spanish-grey: #94918E;
-$silver: #CAC8C7
+$silver: #CAC8C7;
 // define teh different colors to be used in the application
+
+
+// define the mobile responsiveness breakdown
+$mobile-breakpoint: 700px;
+$tab-breakpoint: 1200px;
+// define the mobile responsiveness breakdown
+
+// define random variables
+$fast-transition-speed: 300ms;
+$medium-transition-speed: 500ms;
+$slow-transition-speed: 1s;
+// define random variables
 

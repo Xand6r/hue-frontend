@@ -6,7 +6,7 @@ export default function index() {
   return (
     <div className={styles.private}>
       <div className={styles.left_section}>
-        <div>
+        <div className={styles.left_section_wrapper}>
           <div className={styles.top_meta}>PRIVATE EVENTS</div>
           <div className={styles.title}>
             Host your next event at Hue Chicago
@@ -23,7 +23,7 @@ export default function index() {
       </div>
 
       <div className={styles.right_section}>
-        <Image src="/images/private.png" width={720} height={573} />
+        <Image src="/images/private.png" layout="fill" />
       </div>
     </div>
   );

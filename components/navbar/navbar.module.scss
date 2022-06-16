@@ -1,4 +1,5 @@
 @import "styles/variables.scss";
+@import "styles/partials/_mixins.scss";
 
 .navbar{
     height: 6.25rem;
@@ -13,6 +14,18 @@
     background-color: transparent;
     color: white;
 
+
+    @include tab-breakpoint(){
+        background-color: $spanish-grey;
+        justify-content: space-between;
+        padding: 0 $tab-padding-x;
+    }
+
+    @include mobile-breakpoint(){
+        padding: 0 $mobile-padding-x;
+        height: 65px;
+    }
+
     .left_section{
         display: flex;
         font-size: 1rem;
@@ -22,11 +35,32 @@
         & > div{
             cursor: pointer;
         }
+
+        @include tab-breakpoint(){
+            display: none;
+        }
+    }
+
+    .mobile_hamburger{
+        display: none;
+        position: relative;
+        cursor: pointer;
+
+        @include tab-breakpoint(){
+            display: block ;
+        }
     }
 
     .logo_container{
-        width: 111px;
-        height: 53px;
+        width: 6.9375rem;
+        position: relative;
+        height: 3.3125rem;
+
+        @include mobile-breakpoint(){
+            width: 73px;
+            height: 35px;
+        }
+
     }
 
     .right_section{
@@ -42,6 +76,19 @@
             padding: 0.9375rem  1.875rem;
             background: #FFFFFF;
             color: black;
+            transition: $fast-transition-speed;
+            &:hover{
+                background-color: $dark-crayola;
+                color: white;
+            }
+            &:active{
+                background: #FFFFFF;
+                color: black;
+            }
+        }
+
+        @include tab-breakpoint(){
+            display: none !important;
         }
     }
 }

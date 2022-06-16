@@ -17,8 +17,11 @@ export default function index() {
           finest DJs and an extensive selection of the most exquisite cocktails
           and wines.
         </div>
+
+        <div className={styles.reservation_button}>Make Reservation</div>
+
         <div className={styles.image_container}>
-          <Image src="/images/taglineimage2.png" width={496} height={496} />
+          <Image src="/images/taglineimage2.png" layout="fill" />
         </div>
       </section>
     </div>

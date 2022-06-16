@@ -1,10 +1,18 @@
 @import "styles/variables.scss";
+@import "styles/partials/_mixins.scss";
+
 
 .footer{
     padding-top: 7.5rem;
     padding-bottom: 5.5625rem;
     padding-left: 9.375rem;
     padding-right: 9.375rem;
+
+    @include tab-breakpoint(){
+        padding-top: 75px;
+        padding-left: 0;
+        padding-right: 0;
+    }
 
     background-color: $dark-crayola;
     color: white;
@@ -15,6 +23,10 @@
         width: 100%;
         margin-top: 5.5625rem;
         margin-bottom: 6.25rem;
+        @include mobile-breakpoint(){
+            margin-top: 69px;
+            margin-bottom: 45px;      
+        }
     }
 
     .top{
@@ -22,8 +34,20 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
+
+        @include mobile-breakpoint(){
+            padding-left: $mobile-padding-x;
+            padding-right: $mobile-padding-x;
+        }
+    
+        @include mobile-breakpoint(){
+            align-items: flex-start;
+        }
         .header{
             font-size: 2.25rem;
+            @include mobile-breakpoint(){
+                font-size: 24px;
+            }
         }
         .subheader{
             color: $silver;
@@ -32,11 +56,23 @@
             font-weight: 300;
             font-size: 1rem;
             font-family: $light-font;
+            @include mobile-breakpoint(){
+                max-width: 294px;
+                font-size: 14px;
+                line-height: 22px;
+                margin-top: 10px;
+                margin-bottom: 25px;
+            }
         }
 
         .input_wrapper{
             display: flex;
             gap: 0.9375rem;
+
+            @include mobile-breakpoint(){
+                flex-direction: column;
+            }
+
             input{
                 width: 28.1875rem;
                 height: 3.4375rem;
@@ -50,6 +86,10 @@
                 box-sizing: border-box;
                 padding: 0.875rem 1.25rem;
                 font-size: 1rem;
+                @include mobile-breakpoint(){
+                    width: 327px;
+                    gap: 20px;
+                }
             }
             .subscribe_button{
                 padding: 1.125rem 1.875rem;
@@ -57,15 +97,56 @@
                 color: $dark-crayola;
                 width: fit-content;
                 cursor: pointer;
+
+                &:hover{
+                    background-color: $spanish-grey;
+                    color: $dark-crayola;
+                }
+                &:active{
+                    background: #FFFFFF;
+                    color: $dark-crayola;
+                }
+
+                @include mobile-breakpoint(){
+                    padding: 15px 30px;       
+                }
             }
         }
     }
+
 
     .bottom{
         display: flex;
         justify-content: space-between;
         max-width: 1140px;
         margin: auto;
+
+        @include tab-breakpoint(){
+            flex-wrap: wrap;
+            padding-left: $tab-padding-x;
+            padding-right: $tab-padding-x;
+        }
+
+        @include mobile-breakpoint(){
+            padding-left: $mobile-padding-x;
+            padding-right: $mobile-padding-x;
+            flex-direction: column;
+            align-items: left;
+            .instagram_icon{
+                display: none;
+            }
+        }
+
+        .footer_logo{
+            position: relative;
+            position: relative;
+            width: 123px;
+            height: 59px;
+            @include mobile-breakpoint(){
+                width: 96px;
+                height: 46px;
+            }
+        }
 
         .first_line{
             .text{
@@ -76,7 +157,14 @@
                 line-height: 1.4375rem;
                 margin-bottom: 3.6875rem;
                 font-family: $light-font;
+                @include mobile-breakpoint(){
+                    margin-top: 20px;
+                    margin-bottom: 0;
+                    font-size: 14px;
+                    line-height: 23px;
+                }
             }
+            
         }
 
         .third_line{
@@ -91,6 +179,18 @@
             font-size: 1.375rem;
             line-height: 1.875rem;
             color: #FFFFFF;
+            margin-bottom: 5px;
+            margin-top: 50px;
+            @include mobile-breakpoint(){
+                display: flex;
+                gap: 20px;
+                align-items: baseline;
+                span{
+                    white-space: nowrap;
+                    font-size: 20px;
+                    line-height: 27px;
+                }
+            }
 
 
             .bottom_border{
@@ -99,19 +199,41 @@
                 background-color: #3F3D3C;
                 margin-top: 0.625rem;
                 margin-bottom: 0.9375rem;
+
+                span{
+                    margin-top: 0;
+                    margin-bottom: 0.9375rem;
+                }
             }
         }
 
         .section_content{
             display: flex;
             flex-direction: column;
-            font-size: 1rem;
+            
+            
             & > span{
+                font-size: 1rem;
                 font-weight: 300;
                 line-height: 2.125rem;
                 color: $silver;
                 font-family: $light-font;
+                @include mobile-breakpoint(){
+                    font-size: 14px;
+                    line-height: 27px;
+                }
             }
+        }
+    }
+
+
+    .instagram_icon_mobile{
+        display: none;
+        @include mobile-breakpoint(){
+            padding-left:$mobile-padding-x ;
+            padding-right: $mobile-padding-x ;
+            display: block;
+            margin-top: 28px;
         }
     }
 
@@ -129,6 +251,19 @@
             height: 1px;
             background: #3F3D3C;
             width: 100%;
+        }
+        @include mobile-breakpoint(){
+            padding-right: $mobile-padding-x;
+            padding-left: $mobile-padding-x;
+            margin-top: 37px
+        }
+    }
+
+    .contact{
+        transition: $fast-transition-speed;
+        cursor: pointer;
+        &:hover{
+            color: white !important;
         }
     }
 }

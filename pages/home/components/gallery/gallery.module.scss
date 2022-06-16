@@ -1,4 +1,5 @@
 @import "styles/variables.scss";
+@import "styles/partials/_mixins.scss";
 
 .gallery{
     padding-top: 8.3125rem;
@@ -8,6 +9,28 @@
     flex-direction: column;
     max-width: 1139px;
     margin: auto;
+
+    @include tab-breakpoint(){
+        padding-top: 100px;
+        padding-left: $tab-padding-x;
+        padding-right: $tab-padding-x;
+    }
+
+    @include mobile-breakpoint(){
+        padding-top: 100px;
+        padding-left: $mobile-padding-x;
+        padding-right: $mobile-padding-x;
+        padding-bottom: 95px;
+    }
+
+    .mobile_progress{
+        display: none;
+        @include tab-breakpoint(){
+            display: block;
+            width: 100%;
+            margin-bottom: 30px;
+        }
+    }
 
     .top_section{
         display: flex;
@@ -19,9 +42,18 @@
         padding-bottom: 2.1875rem;
         margin-bottom: 3.125rem;
 
+        @include tab-breakpoint(){
+            border-bottom: 0;
+            padding-bottom: 0;
+            margin-bottom: 20px;
+        }
+
 
         .header__text{
             font-size: 2.25rem;
+            @include tab-breakpoint(){
+                font-size: 24px;
+            }
         }
 
         .action_button{
@@ -33,6 +65,70 @@
             cursor: pointer;
             border: 1px solid $dark-crayola;
             box-sizing: border-box;
+
+            @include tab-breakpoint(){
+                display: none;
+            }
+
+            transition: $fast-transition-speed;
+            &:hover{
+                background-color: $dark-crayola;
+                color: white;
+                svg{
+                    fill: $dark-crayola;
+                    path{
+                        stroke: white;
+                    }
+                }
+            }
+            &:active{
+                background-color:white;
+                color: $dark-crayola;
+                svg{
+                    fill: white;
+                    path{
+                        stroke: $dark-crayola;
+                    }
+                }
+            }
+        
+        }
+    }
+    .action_button_mobile{
+        display: none;
+        @include tab-breakpoint(){
+            display: flex;
+            border: 1px solid $dark-crayola;
+            width: 198px;
+            height: 49px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            font-family: $regular-font;
+            margin-top: 60px;
+            gap: 12px;
+        }
+        transition: $fast-transition-speed;
+        &:hover{
+            background-color: $dark-crayola;
+            color: white;
+            svg{
+                fill: $dark-crayola;
+                path{
+                    stroke: white;
+                }
+            }
+        }
+        &:active{
+            background-color:white;
+            color: $dark-crayola;
+            svg{
+                fill: white;
+                path{
+                    stroke: $dark-crayola;
+                }
+            }
         }
     }
 
@@ -68,8 +164,33 @@
                 justify-content: center;
                 align-items: center;
                 cursor: pointer;
-                cursor: pointer;
+
+                transition: $fast-transition-speed;
+                &:hover{
+                    background-color: $dark-crayola;
+                    color: white;
+                    svg{
+                        fill: $dark-crayola;
+                        path{
+                            stroke: white;
+                        }
+                    }
+                }
+                &:active{
+                    background-color:white;
+                    color: $dark-crayola;
+                    svg{
+                        fill: white;
+                        path{
+                            stroke: $dark-crayola;
+                        }
+                    }
+                }
             }
+        }
+
+        @include tab-breakpoint(){
+            display: none;
         }
     }
 
@@ -80,6 +201,17 @@
     height: 28.0625rem;
     background-color:$silver;
     position: relative;
+    margin-left: 7.5px;
+    margin-right: 7.5px;
+
+    img{
+        object-fit: cover;
+    }
+
+    @include mobile-breakpoint(){
+        width: 317px;
+        height: 188px;
+    }
 }
 
 .portrait{
@@ -87,25 +219,16 @@
     height: 28.0625rem;
     background-color: $silver;
     position: relative;
-}
+    margin-left: 7.5px;
+    margin-right: 7.5px;
 
 
-.progresscontainer{
-    position: relative;
-    width: 100%;
-
-    .blankline{
-        position: absolute;
-        width: 100%;
-        height: 1px;
-        background-color: $silver;
+    img{
+        object-fit: cover;
     }
 
-    .filledline{
-        position: absolute;
-        top: -1px;
-        width: 0%;
-        background: $dark-crayola;
-        height: 3px;
+    @include mobile-breakpoint(){
+        width: 128px;
+        height: 188px;
     }
 }

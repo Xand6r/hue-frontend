@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import FooterLogo from "components/svg/footerLogo";
 import styles from "./footer.module.scss";
 
@@ -21,13 +22,17 @@ export default function Footer() {
 
       <section className={styles.bottom}>
         <div className={styles.first_line}>
-          <FooterLogo />
+          <div className={styles.footer_logo}>
+            <Image layout="fill" src="/images/footerlogo.svg" />
+          </div>
           <div className={styles.text}>
             Hue Chicago is a luxury bar & lounge offering elite nightlife and
             lounging experience for Chicago’s young upper class in a serene,
             safe, and contemporary-themed atmosphere.
           </div>
-          <InstagramIcon />
+          <div className={styles.instagram_icon}>
+            <InstagramIcon />
+          </div>
         </div>
 
         <div className={styles.second_line}>
@@ -60,23 +65,38 @@ export default function Footer() {
               <div className={styles.bottom_border} />
             </div>
             <div className={styles.section_content}>
-              <span>hello@hue-chicago.com</span>
-              <span>+1234567891234567</span>
+              <span
+                className={styles.contact}
+                onClick={() => {
+                  window.location.href = "mailto:hello@hue-chicago.com";
+                }}
+              >
+                hello@hue-chicago.com
+              </span>
+              <span
+                className={styles.contact}
+                onClick={() => {
+                  window.open("tel:1234567891234567");
+                }}
+              >
+                +1234567891234567
+              </span>
             </div>
           </div>
         </div>
       </section>
 
+      <div className={styles.instagram_icon_mobile}>
+        <InstagramIcon />
+      </div>
+
       <div className={styles.copyright}>
-        <span>
-          © 2022 | Hue Chicago
-        </span>
+        <span>© 2022 | Hue Chicago</span>
         <div className={styles.line}></div>
       </div>
     </section>
   );
 }
-
 
 const InstagramIcon = () => (
   <svg

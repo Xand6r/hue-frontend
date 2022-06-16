@@ -1,7 +1,15 @@
-@mixin desktop() {
-    @media (max-width: 600px) {
-      @content;
-    }
+@import "styles/variables.scss";
+
+@mixin mobile-breakpoint {
+  @media (max-width: $mobile-breakpoint ){
+    @content;
+  }
+}
+
+@mixin tab-breakpoint {
+  @media (max-width: $tab-breakpoint ){
+    @content;
+  }
 }
 
 //   @include desktop() {

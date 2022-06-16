@@ -1,8 +1,8 @@
 import React from "react";
 
-export default function leftArrow() {
+export default function leftArrow({onClick}) {
   return (
-    <div>
+    <div onClick={() => onClick && onClick()}>
       <svg
         width="19"
         height="17"
