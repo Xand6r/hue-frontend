@@ -19,7 +19,7 @@ const EVENTS = [
   },
 ];
 
-export default function index() {
+export default function Index() {
   const [progress, setProgress] = useState(30);
   const settings = {
     infinite: false,
