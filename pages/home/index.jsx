@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useRef } from "react";
+import { gsap } from "gsap";
+
 import NavBar from "components/navbar";
 import Landing from "./components/landing";
 import SubLanding from "./components/sublanding";
@@ -8,10 +10,14 @@ import Footer from "components/footer";
 import Gallery from "./components/gallery";
 
 function HomePage() {
+  // define the selectors
+  const homeComponentRef = useRef();
+  let q = gsap.utils.selector(homeComponentRef);
+
   return (
-    <div>
-      <NavBar />
-      <Landing />
+    <div ref={homeComponentRef}>
+      <NavBar selector={q} useFadeDownAnimation />
+      <Landing selector={q} />
       <SubLanding />
       <Events />
       <Private />

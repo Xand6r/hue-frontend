@@ -13,16 +13,16 @@
     background-repeat: no-repeat;
     background-size: cover;
 
-    @include mobile-breakpoint(){
-        background-image: url("/images/homelandingmobile.png");
-        background-position: 0 -65px;
+    @include tab-breakpoint(){
+        margin-top: 0;
         & > div{
             display: none;
         }
     }
 
-    @include tab-breakpoint(){
-        margin-top: 0;
+    @include mobile-breakpoint(){
+        background-image: url("/images/homelandingmobile.png");
+        background-position: 0 -65px;
     }
 
     @include mobile-breakpoint(){

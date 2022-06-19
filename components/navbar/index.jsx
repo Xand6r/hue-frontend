@@ -1,9 +1,38 @@
-import React from "react";
+import { gsap } from "gsap";
+import React, { useEffect } from "react";
 import Image from "next/image";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 import styles from "./navbar.module.scss";
 
-export default function Index() {
+gsap.registerPlugin(ScrollTrigger);
+
+export default function Index({ selector, useFadeDownAnimation }) {
+  // wait until DOM has been rendered
+  useEffect(() => {
+    if (!useFadeDownAnimation) return;
+    ScrollTrigger.matchMedia({
+      "(min-width: 1200px)": function(){
+        gsap.fromTo(
+          selector("#icon"),
+          {
+            autoAlpha: 0,
+          },
+          {
+            scrollTrigger: {
+              trigger: selector("#homeimage"),
+              start: "top top-=21",
+              end: "+=1",
+              scrub: true,
+            },
+            autoAlpha: 1,
+            duration: 0.01,
+          }
+        );
+      }
+    })
+  }, [useFadeDownAnimation]);
+
   return (
     <nav className={styles.navbar}>
       {/* left menu items */}
@@ -14,7 +43,7 @@ export default function Index() {
         <div>About</div>
       </section>
       {/* center logo */}
-      <section className={styles.logo_container}>
+      <section id="icon" className={styles.logo_container}>
         <Image src="/images/logosmall.svg" layout="fill" />
       </section>
       {/* right menu items */}

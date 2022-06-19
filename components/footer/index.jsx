@@ -5,7 +5,7 @@ import styles from "./footer.module.scss";
 
 export default function Footer() {
   return (
-    <section className={styles.footer}>
+    <section id="footer" className={styles.footer}>
       <section className={styles.top}>
         <div className={styles.header}>Be the first to know</div>
         <div className={styles.subheader}>
