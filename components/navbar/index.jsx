@@ -1,4 +1,6 @@
 import { gsap } from "gsap";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { useEffect } from "react";
 import Image from "next/image";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -8,11 +10,13 @@ import styles from "./navbar.module.scss";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Index({ selector, useFadeDownAnimation }) {
+  const router = useRouter();
+
   // wait until DOM has been rendered
   useEffect(() => {
     if (!useFadeDownAnimation) return;
     ScrollTrigger.matchMedia({
-      "(min-width: 1200px)": function(){
+      "(min-width: 1200px)": function () {
         gsap.fromTo(
           selector("#icon"),
           {
@@ -29,8 +33,8 @@ export default function Index({ selector, useFadeDownAnimation }) {
             duration: 0.01,
           }
         );
-      }
-    })
+      },
+    });
   }, [useFadeDownAnimation]);
 
   return (
@@ -40,10 +44,19 @@ export default function Index({ selector, useFadeDownAnimation }) {
         <div>Event</div>
         <div>Menu</div>
         <div>Gallery</div>
-        <div>About</div>
+        <div>
+          <Link href="/about">About</Link>
+        </div>
       </section>
       {/* center logo */}
-      <section id="icon" className={styles.logo_container}>
+      <section
+        onClick={(e) => {
+          e.preventDefault();
+          router.push('/');
+        }}
+        id="icon"
+        className={styles.logo_container}
+      >
         <Image src="/images/logosmall.svg" layout="fill" />
       </section>
       {/* right menu items */}
