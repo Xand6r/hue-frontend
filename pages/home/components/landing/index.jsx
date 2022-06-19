@@ -7,7 +7,7 @@ import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function index({ selector }) {
+export default function Index({ selector }) {
   useEffect(() => {
     const tl = gsap.timeline({
       scrollTrigger: {

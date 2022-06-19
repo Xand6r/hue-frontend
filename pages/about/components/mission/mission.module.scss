@@ -1,0 +1,71 @@
+@import "styles/variables.scss";
+@import "styles/partials/_mixins.scss";
+
+
+.mission{
+    width: fit-content;
+    margin: auto;
+    padding-top: 7.5rem;
+    padding-bottom: 10rem;
+
+    @include tab-breakpoint(){
+        padding-top: 75px;
+        padding-bottom: 100px;
+    }
+
+    .image_container{
+        position: relative;
+        width: 71.25rem;
+        height: 33.5625rem;
+
+        @include tab-breakpoint(){
+            width: 37.375rem;
+            height: 16.986875rem;
+        }
+
+        @include mobile-breakpoint(){
+            width: 327px;
+            height: 217px;
+        }
+    }
+    .statement{
+        font-family: $regular-font;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 3rem;
+        padding-bottom: 4.375rem;
+        padding-right: 22px;
+        border-top: 1px solid $silver;
+        border-bottom: 1px solid $silver;
+        margin-top: 3.5625rem;
+
+        @include tab-breakpoint(){
+            flex-direction: column;
+            padding-top: 28px;
+            padding-bottom: 40px;
+            gap: 12px;
+            margin-top: 35px;
+            padding-right: 9px;
+        }
+
+        div:first-of-type{
+            color: $dark-crayola;
+            font-size: 2.25rem;
+            @include tab-breakpoint(){
+                font-size: 24px;
+            }
+        }
+        div:last-of-type{
+            color: $jet-black;
+            font-size: 1.375rem;
+            max-width: 35.9375rem;
+            @include tab-breakpoint(){
+                font-size: 16px;
+                line-height: 26.53px;
+            }
+            @include mobile-breakpoint(){
+                max-width: 318px;
+            }
+        }
+    }
+}
