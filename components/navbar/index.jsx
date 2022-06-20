@@ -1,7 +1,8 @@
+import React, { useEffect } from "react"
+import PropTypes from 'prop-types';
 import { gsap } from "gsap";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useEffect } from "react";
 import Image from "next/image";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
@@ -9,7 +10,11 @@ import styles from "./navbar.module.scss";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Index({ selector, useFadeDownAnimation }) {
+export default function Index({
+  selector,
+  useFadeDownAnimation,
+  theme = "light",
+}) {
   const router = useRouter();
 
   // wait until DOM has been rendered
@@ -38,7 +43,7 @@ export default function Index({ selector, useFadeDownAnimation }) {
   }, [useFadeDownAnimation]);
 
   return (
-    <nav className={styles.navbar}>
+    <nav className={`${styles.navbar} ${styles[theme]}`}>
       {/* left menu items */}
       <section className={styles.left_section}>
         <div>Event</div>
@@ -52,16 +57,18 @@ export default function Index({ selector, useFadeDownAnimation }) {
       <section
         onClick={(e) => {
           e.preventDefault();
-          router.push('/');
+          router.push("/");
         }}
         id="icon"
         className={styles.logo_container}
       >
-        <Image src="/images/logosmall.svg" layout="fill" />
+        <Image src={`/images/logosmall${theme}.svg`} layout="fill" />
       </section>
       {/* right menu items */}
       <section className={styles.right_section}>
-        <div>Contact</div>
+        <div>
+          <Link href="/contact">Contact</Link>
+        </div>
         <div className={styles.reservation_button}>Make Reservatvion</div>
       </section>
       {/* mobile section */}
@@ -71,6 +78,18 @@ export default function Index({ selector, useFadeDownAnimation }) {
     </nav>
   );
 }
+
+Index.propTypes = {
+  theme: PropTypes.oneOf(["dark", "light"]),
+  selector: PropTypes.any.isRequired,
+  useFadeDownAnimation:  PropTypes.bool
+}
+Index.defaultProps = {
+  theme: "light",
+  useFadeDownAnimation: false
+}
+
+
 
 const HamBurger = () => (
   <svg

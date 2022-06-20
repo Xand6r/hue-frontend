@@ -1,0 +1,124 @@
+@import "styles/variables.scss";
+@import "styles/partials/_mixins.scss";
+
+.form{
+    font-family: $regular-font;
+    width: fit-content;
+    margin: auto;
+    display: flex;
+    padding-top: 7.8125rem;
+    padding-bottom: 10.25rem;
+    gap: 15.1875rem;
+    @include tab-breakpoint(){
+        flex-direction: column;
+        gap: 73px;
+    }
+    @include mobile-breakpoint(){
+        gap: 43px;
+        padding-top: 55px;
+        padding-bottom: 100px;
+    }
+    .left{
+        color: $dark-crayola;
+        width: fit-content;
+        .title{
+            font-size: 3.25rem;
+            line-height: 4.75rem;
+            @include mobile-breakpoint(){
+                font-size: 32px;
+                line-height: 47px;
+            }
+        }
+        .meta{
+            padding-top: 2.3125rem;
+            padding-bottom: 2.8125rem;
+            margin-top: 2.5625rem;
+            border-top: 1px solid #CAC8C7;
+            border-bottom: 1px solid #CAC8C7;
+            gap: 15px;
+            display: flex;
+            flex-direction: column;
+
+            & > div{
+                display: flex;
+                align-items: center;
+                gap: 17px;
+                &:first-of-type{
+                    span{
+                        text-decoration: underline;
+                    }
+                }
+                &:last-of-type{
+                    margin-left: 3px;
+                }
+            }
+            @include mobile-breakpoint(){
+                padding-top: 30px;
+                padding-bottom: 42px;
+                gap: 27px;
+                font-size: 18px;
+                line-height: 21px;
+                margin-top: 37px;
+            }
+        }
+    }
+    .right{
+        .title{
+            color: $dark-crayola;
+            font-size: 1.375rem;
+            line-height: 2.25rem;
+            max-width: 27rem;
+            margin-bottom: 5px;
+            @include mobile-breakpoint(){
+                margin-bottom: 0;
+                font-size: 18px;
+                line-height: 30px;
+                max-width: 327px;
+            }
+        }
+
+        .input_fields{
+            margin-bottom: 60px;
+            @include mobile-breakpoint(){
+                margin-bottom: 40px;
+            }
+            
+            .input_wrapper{
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 30px;
+                span{
+                    color: $jet-black;
+                    font-size: 0.75rem;
+                    line-height: 1.4375rem;
+                }
+                input,textarea{
+                    padding: 0.875rem 1.25rem;
+                    outline: none;
+                    font-size: 16px;
+                    line-height: 27px;
+                    border: 1px solid #CAC8C7;
+
+                    &::placeholder{
+                        color: $silver;
+                        font-family: $regular-font;
+                    }
+                }
+                textarea{
+                    min-height: 141px;
+                }
+            }
+        }
+        .action{
+            width: 113px;
+            height: 55px;
+            color: white;
+            background-color: $dark-crayola;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+    }
+}

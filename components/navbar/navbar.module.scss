@@ -10,7 +10,6 @@
     justify-content: center;
     gap: 13.75rem;
     font-family: $regular-font;
-    
     background-color: transparent;
     color: white;
     position: sticky;
@@ -66,6 +65,7 @@
 
     }
 
+
     .right_section{
         display: flex;
         gap: 1.875rem;
@@ -93,5 +93,38 @@
         @include tab-breakpoint(){
             display: none !important;
         }
+
     }
+    &.dark{
+        color: $dark-crayola;
+        @include mobile-breakpoint(){
+            background-color: white;
+        }
+        .mobile_hamburger{
+            rect{
+                fill: black;
+            }
+        }
+
+        .right_section{
+
+            & > div a{
+                color: $dark-crayola;
+            }
+            .reservation_button{
+                color: #FFFFFF;
+                background: $dark-crayola;
+                &:hover{
+                    color: $dark-crayola;
+                    background: white;
+                }
+                &:active{
+                    color: #FFFFFF;
+                    background: black;
+                }
+            }
+        }
+    }
+
+    
 }
