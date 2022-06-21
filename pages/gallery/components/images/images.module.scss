@@ -1,0 +1,89 @@
+
+@import "styles/variables.scss";
+@import "styles/partials/_mixins.scss";
+
+.images{
+    margin: auto;
+    width: fit-content;
+    width: 1139px; 
+    padding-top: 4.8125rem;
+    padding-bottom: 12.5rem;
+
+    .heading{
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        border-bottom: 1px solid #CAC8C7;
+        padding-bottom: 2.1875rem;
+        margin-bottom: 3.125rem;
+
+
+        & > div{
+            width: 6.0625rem;
+            height: 6.0625rem;
+            position: relative;
+        }
+
+        & > span{
+            color: $dark-crayola;
+            font-size: 2.25rem;
+            line-height: 3.0625rem;
+        }
+    }
+
+    .gallery{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        max-height: 111.125rem;
+        gap: 10px;
+    }
+}
+
+.portrait{
+    width: 373px;
+    height: 440px;
+    background-color:$silver;
+    position: relative;
+
+    // img{
+    //     object-fit: cover;
+    // }
+
+    // @include mobile-breakpoint(){
+    //     width: 317px;
+    //     height: 188px;
+    // }
+}
+
+.square{
+    width: 373px;
+    height: 373px;
+    background-color: $silver;
+    position: relative;
+
+    // img{
+    //     object-fit: cover;
+    // }
+
+    // @include mobile-breakpoint(){
+    //     width: 128px;
+    //     height: 188px;
+    // }
+}
+
+.landscape{
+    width: 373px;
+    height: 249px;
+    background-color: $silver;
+    position: relative;
+
+    // img{
+    //     object-fit: cover;
+    // }
+
+    // @include mobile-breakpoint(){
+    //     width: 128px;
+    //     height: 188px;
+    // }
+}
