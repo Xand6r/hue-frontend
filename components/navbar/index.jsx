@@ -1,5 +1,5 @@
-import React, { useEffect } from "react"
-import PropTypes from 'prop-types';
+import React, { useEffect } from "react";
+import PropTypes from "prop-types";
 import { gsap } from "gsap";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -48,7 +48,9 @@ export default function Index({
       <section className={styles.left_section}>
         <div>Event</div>
         <div>Menu</div>
-        <div>Gallery</div>
+        <div>
+          <Link href="/gallery">Gallery</Link>
+        </div>
         <div>
           <Link href="/about">About</Link>
         </div>
@@ -82,14 +84,12 @@ export default function Index({
 Index.propTypes = {
   theme: PropTypes.oneOf(["dark", "light"]),
   selector: PropTypes.any.isRequired,
-  useFadeDownAnimation:  PropTypes.bool
-}
+  useFadeDownAnimation: PropTypes.bool,
+};
 Index.defaultProps = {
   theme: "light",
-  useFadeDownAnimation: false
-}
-
-
+  useFadeDownAnimation: false,
+};
 
 const HamBurger = () => (
   <svg
