@@ -17,7 +17,7 @@ export default function Images() {
 
       <div className={styles.gallery}>
         {IMAGES.map(({ image, orientation }) => (
-          <ImageRender imageLink={image} orientation={orientation} />
+          <ImageRender key={image} imageLink={image} orientation={orientation} />
         ))}
       </div>
     </div>
