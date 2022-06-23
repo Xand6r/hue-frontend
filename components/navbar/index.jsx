@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { gsap } from "gsap";
 import Link from "next/link";
@@ -16,6 +16,7 @@ export default function Index({
   theme = "light",
 }) {
   const router = useRouter();
+  const navRef = useRef(null);
 
   // wait until DOM has been rendered
   useEffect(() => {
@@ -42,8 +43,29 @@ export default function Index({
     });
   }, [useFadeDownAnimation]);
 
+  useEffect(() => {
+    gsap.to(
+      navRef.current,
+
+      {
+        scrollTrigger: {
+          trigger: navRef.current,
+          start: "top top=-10",
+          // end: "+=1",
+          scrub: true,
+        },
+        background: "#94918E",
+        duration: 0.01,
+      }
+    );
+  }, []);
+
   return (
-    <nav className={`${styles.navbar} ${styles[theme]}`}>
+    <nav
+      ref={navRef}
+      id="navbar"
+      className={`${styles.navbar} ${styles[theme]}`}
+    >
       {/* left menu items */}
       <section className={styles.left_section}>
         <div>Event</div>
