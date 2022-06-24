@@ -94,6 +94,9 @@
             color: $dark-crayola;
             width: fit-content;
             cursor: pointer;
+            transition: $fast-transition-speed;
+
+            @include white-button-states;
         }
 
         .left_section_wrapper{

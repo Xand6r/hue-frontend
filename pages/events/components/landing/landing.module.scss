@@ -87,6 +87,7 @@
         font-size: 16px;
         margin-top: 60px;
         cursor: pointer;
+        @include white-button-states;
         @include mobile-breakpoint(){
             margin-top: 40px;
             font-size: 16px;

@@ -13,6 +13,7 @@
 }
 
 @mixin action-button-states{
+  transition: $fast-transition-speed;
   &:hover{
     background-color: $dark-crayola;
     color: white;
@@ -21,24 +22,33 @@
         path{
             stroke: white;
         }
-    }
-}
+      }
+  }
 
 
-&:active{
-    background-color:white;
-    color: $dark-crayola;
-    svg{
-        fill: white;
-        path{
-            stroke: $dark-crayola;
-        }
-    }
+  &:active{
+      background-color:white;
+      color: $dark-crayola;
+      svg{
+          fill: white;
+          path{
+              stroke: $dark-crayola;
+          }
+      }
+  }
+
 }
+
+@mixin white-button-states{
+  transition: $fast-transition-speed;
+  &:hover{
+    color: white;
+    background-color: $dark-crayola;
+  }
+
+  &:active{
+    background-color: white;
+    color: $dark-crayola;  
+  }
+
 }
-//   @include desktop() {
-//     .grid {
-//       width: 100%;
-//       flex-direction: column;
-//     }
-//   }

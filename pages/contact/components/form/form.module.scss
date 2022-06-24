@@ -119,6 +119,16 @@
             justify-content: center;
             align-items: center;
             cursor: pointer;
+            transition: $fast-transition-speed;
+
+            &:hover{
+                color: white;
+                background-color: $spanish-grey;
+            }
+            &:active{
+                color: white;
+                background-color: $dark-crayola;
+            }
         }
     }
 }
