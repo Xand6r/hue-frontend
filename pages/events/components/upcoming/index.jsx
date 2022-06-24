@@ -82,9 +82,9 @@ function DownArrow() {
       <path
         d="M5.0625 12.1667H1L7.5 17.5L14 12.1667L8.5 12.1667C7.94772 12.1667 7.5 11.719 7.5 11.1667L7.5 1.5"
         stroke="#131616"
-        stroke-width="1.5"
-        stroke-linecap="square"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="square"
+        strokeLinejoin="round"
       />
     </svg>
   );
@@ -102,9 +102,9 @@ function MagnifyingGlass() {
       <path
         d="M6.55556 8.3125C6.55556 4.27392 9.78905 1 13.7778 1C17.7665 1 21 4.27392 21 8.3125C21 12.3511 17.7665 15.625 13.7778 15.625C11.8372 15.625 10.0754 14.8501 8.77778 13.5892L1 19"
         stroke="#131616"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
