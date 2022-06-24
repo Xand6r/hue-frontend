@@ -26,7 +26,12 @@ export default function UpcomingEvents() {
 
   return (
     <div className={styles.upcoming_wrapper}>
-      <div className={styles.title}>Upcoming Events</div>
+      <div className={styles.title}>
+        <span>Upcoming Events</span>
+        <span className={styles.mobile_search}>
+            <MagnifyingGlass />
+        </span>
+      </div>
 
       <div className={styles.filters}>
         <div className={styles.left}>
@@ -79,6 +84,26 @@ function DownArrow() {
         stroke="#131616"
         stroke-width="1.5"
         stroke-linecap="square"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+}
+
+function MagnifyingGlass() {
+  return (
+    <svg
+      width="22"
+      height="20"
+      viewBox="0 0 22 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M6.55556 8.3125C6.55556 4.27392 9.78905 1 13.7778 1C17.7665 1 21 4.27392 21 8.3125C21 12.3511 17.7665 15.625 13.7778 15.625C11.8372 15.625 10.0754 14.8501 8.77778 13.5892L1 19"
+        stroke="#131616"
+        stroke-width="1.5"
+        stroke-linecap="round"
         stroke-linejoin="round"
       />
     </svg>

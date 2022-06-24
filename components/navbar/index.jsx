@@ -84,7 +84,9 @@ export default function Index({
     >
       {/* left menu items */}
       <section className={styles.left_section}>
-        <div>Event</div>
+        <div>
+        <Link href="/events">Event</Link>
+        </div>
         <div>Menu</div>
         <div>
           <Link href="/gallery">Gallery</Link>

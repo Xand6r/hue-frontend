@@ -9,10 +9,32 @@
     margin: auto;
     font-family: $regular-font;
 
+    @include tab-breakpoint(){
+    }
+
+    @include mobile-breakpoint(){
+        padding-top: 77px;
+        padding-top: 100px;
+    }
+
     .title{
         font-size: 2.25rem;
         color: $dark-crayola;
-        // margin-bottom: 35px; 
+        
+        @include mobile-breakpoint(){
+            display: flex;
+            justify-content: space-between;
+            font-size: 24px;
+            line-height: 34px;
+        }
+
+        .mobile_search{
+            display: none;
+            cursor: pointer;
+            @include mobile-breakpoint(){
+                display: block;
+            }
+        }
     }
 
     .filters{
@@ -21,14 +43,23 @@
         margin-top: 35px;
         margin-bottom: 50px;
         display: flex;
-        // padding-left: 30px;
-        // padding-right: 30px;
+        
+        @include mobile-breakpoint(){
+            margin-top: 20px;
+            margin-bottom: 27px;
+        }
 
         .left{
             display: flex;
             gap: 2px;
             font-size: 18px;
             line-height: 30px;
+
+            @include mobile-breakpoint(){
+                font-size: 14px;
+                line-height: 23px;
+                gap: 1px;
+            }
 
             & > span{
                 padding-top: 20px;
@@ -41,6 +72,11 @@
                 color: $silver;
                 display: inline-block;
 
+                @include mobile-breakpoint(){
+                    padding-left: 13px;
+                    padding-right: 13px;
+                }
+
                 &.__active{
                     border-bottom: 3px solid $dark-crayola;
                     color: $dark-crayola;
@@ -52,6 +88,10 @@
                 margin-top: 15px;
                 margin-bottom: 15px;
                 margin-left: 25px;
+
+                @include mobile-breakpoint(){
+                    display: none;
+                }
             }
         }
 
@@ -60,6 +100,10 @@
             align-items: center;
             margin-left: 50px;
             flex-basis: 50%;
+
+            @include tab-breakpoint(){
+                flex-basis: unset;
+            }
 
             input{
                 background-image: url("/images/icon.svg");
@@ -79,6 +123,10 @@
                     color: $silver;
                 }
             }
+
+            @include mobile-breakpoint(){
+                display: none;
+            }
         }
 
     }
@@ -87,6 +135,16 @@
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         gap: 31px;
+
+        @include tab-breakpoint(){
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @include mobile-breakpoint(){
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
     }
 
     .action{
@@ -107,5 +165,8 @@
         transition: $fast-transition-speed;
 
         @include action-button-states;
+        @include mobile-breakpoint(){
+            margin-top: 50px;
+        }
     }
 }
