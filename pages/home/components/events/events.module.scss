@@ -60,29 +60,29 @@
             border: 1px solid $dark-crayola;
             box-sizing: border-box;
             transition: $fast-transition-speed;
+            @include action-button-states;
+            // &:hover{
+            //     background-color: $dark-crayola;
+            //     color: white;
+            //     svg{
+            //         fill: $dark-crayola;
+            //         path{
+            //             stroke: white;
+            //         }
+            //     }
+            // }
 
-            &:hover{
-                background-color: $dark-crayola;
-                color: white;
-                svg{
-                    fill: $dark-crayola;
-                    path{
-                        stroke: white;
-                    }
-                }
-            }
 
-
-            &:active{
-                background-color:white;
-                color: $dark-crayola;
-                svg{
-                    fill: white;
-                    path{
-                        stroke: $dark-crayola;
-                    }
-                }
-            }
+            // &:active{
+            //     background-color:white;
+            //     color: $dark-crayola;
+            //     svg{
+            //         fill: white;
+            //         path{
+            //             stroke: $dark-crayola;
+            //         }
+            //     }
+            // }
 
 
             @include tab-breakpoint(){
@@ -111,26 +111,27 @@
         }
 
         transition: $fast-transition-speed;
-        &:hover{
-            background-color: $dark-crayola;
-            color: white;
-            svg{
-                fill: $dark-crayola;
-                path{
-                    stroke: white;
-                }
-            }
-        }
-        &:active{
-            background-color:white;
-            color: $dark-crayola;
-            svg{
-                fill: white;
-                path{
-                    stroke: $dark-crayola;
-                }
-            }
-        }
+        @include action-button-states;
+        // &:hover{
+        //     background-color: $dark-crayola;
+        //     color: white;
+        //     svg{
+        //         fill: $dark-crayola;
+        //         path{
+        //             stroke: white;
+        //         }
+        //     }
+        // }
+        // &:active{
+        //     background-color:white;
+        //     color: $dark-crayola;
+        //     svg{
+        //         fill: white;
+        //         path{
+        //             stroke: $dark-crayola;
+        //         }
+        //     }
+        // }
     }
 
     .bottom_section{

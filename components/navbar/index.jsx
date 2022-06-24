@@ -41,9 +41,25 @@ export default function Index({
         );
       },
     });
+
+    gsap.fromTo(
+      navRef.current,
+      { background: "rgba(148, 145, 142, 0)" },
+      {
+        scrollTrigger: {
+          trigger: selector("#homeimage"),
+          start: "bottom+=180 top",
+          end: "+=200",
+          scrub: true,
+        },
+        background: "#94918E",
+        duration: 1,
+      }
+    );
   }, [useFadeDownAnimation]);
 
   useEffect(() => {
+    if (useFadeDownAnimation) return;
     gsap.to(
       navRef.current,
 
@@ -58,7 +74,7 @@ export default function Index({
         duration: 0.01,
       }
     );
-  }, []);
+  }, [useFadeDownAnimation]);
 
   return (
     <nav
@@ -105,7 +121,7 @@ export default function Index({
 
 Index.propTypes = {
   theme: PropTypes.oneOf(["dark", "light"]),
-  selector: PropTypes.any.isRequired,
+  selector: PropTypes.any,
   useFadeDownAnimation: PropTypes.bool,
 };
 Index.defaultProps = {

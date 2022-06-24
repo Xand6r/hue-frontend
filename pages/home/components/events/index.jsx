@@ -5,7 +5,6 @@ import RightArrow from "components/svg/rightArrow";
 import ProgressBar from "components/progressbar";
 
 import Event from "components/eventcard";
-import CONSTANTS from "utils/constants";
 
 const EVENTS = [
   {

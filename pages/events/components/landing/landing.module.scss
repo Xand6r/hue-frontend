@@ -1,0 +1,98 @@
+@import "styles/variables.scss";
+@import "styles/partials/_mixins.scss";
+
+.landing{
+    margin-top: -100px;
+    background-image: url("/images/eventsbg.svg");
+    background-color: $chestnut;
+    background-repeat: no-repeat;
+    background-size: 420px 420px;
+    background-position-y: bottom;
+    background-position-x: 38px;
+    
+    height: 37.125rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: $regular-font;
+
+    @include tab-breakpoint(){
+        margin-top: 0;
+        height: unset;
+        background-position-y: center;
+        background-position-x: right;
+        justify-content: flex-start;
+        padding-left: $tab-padding-x;
+        padding-right: $tab-padding-x;
+    }
+    
+    @include mobile-breakpoint(){
+        background: $chestnut;
+        padding-left: $mobile-padding-x;
+        padding-right: $mobile-padding-x;
+        // height: 363px;
+    }
+
+    & > div{
+        display: flex;
+        gap: 14.125rem;
+        margin-left: -17px;
+        @include tab-breakpoint(){
+            margin-left: 0;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+            padding-top: 60px;
+            padding-bottom: 81px;
+
+            
+        }
+    }
+
+    .left{
+        color: #FFFFFF;
+        font-size: 52px;
+        line-height: 76px;
+        max-width: 411px;
+
+        @include mobile-breakpoint(){
+            width: 284px;
+            font-size: 32px;
+            line-height: 47px;
+        }
+    }
+
+    .right{
+        margin-top: 22px;
+        max-width: 468px;
+        color: $mistyrose;
+        font-size: 1.25rem;
+        line-height: 33px;
+        @include mobile-breakpoint(){
+            font-size: 16px;
+            line-height: 27px;
+            max-width:304px;
+            margin-top: 0px;
+        }
+    }
+
+    .button{
+        width: 133px;
+        height: 49px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #FFFFFF;
+        color: $dark-crayola;
+        font-size: 16px;
+        margin-top: 60px;
+        cursor: pointer;
+        @include mobile-breakpoint(){
+            margin-top: 40px;
+            font-size: 16px;
+            line-height: 19px;
+            width: 133px;
+            height: 49px;
+        }
+    }
+}

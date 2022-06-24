@@ -81,14 +81,15 @@
             background: #FFFFFF;
             color: black;
             transition: $fast-transition-speed;
-            &:hover{
-                background-color: $dark-crayola;
-                color: white;
-            }
-            &:active{
-                background: #FFFFFF;
-                color: black;
-            }
+            // &:hover{
+            //     background-color: $dark-crayola;
+            //     color: white;
+            // }
+            // &:active{
+            //     background: #FFFFFF;
+            //     color: black;
+            // }
+            @include action-button-states
         }
 
         @include tab-breakpoint(){

@@ -1,0 +1,111 @@
+@import "styles/variables.scss";
+@import "styles/partials/_mixins.scss";
+
+.upcoming_wrapper{
+    padding-top: 9.125rem;
+    padding-bottom: 9.5625rem;
+
+    width: fit-content;//todo remove me
+    margin: auto;
+    font-family: $regular-font;
+
+    .title{
+        font-size: 2.25rem;
+        color: $dark-crayola;
+        // margin-bottom: 35px; 
+    }
+
+    .filters{
+        border-top: 1px solid $silver;
+        border-bottom: 1px solid $silver;
+        margin-top: 35px;
+        margin-bottom: 50px;
+        display: flex;
+        // padding-left: 30px;
+        // padding-right: 30px;
+
+        .left{
+            display: flex;
+            gap: 2px;
+            font-size: 18px;
+            line-height: 30px;
+
+            & > span{
+                padding-top: 20px;
+                padding-bottom: 17px;
+                padding-left: 23px;
+                padding-right: 23px;
+                cursor: pointer;
+                transition: $fast-transition-speed;
+                border-bottom: 3px solid transparent;
+                color: $silver;
+                display: inline-block;
+
+                &.__active{
+                    border-bottom: 3px solid $dark-crayola;
+                    color: $dark-crayola;
+                }
+            }
+
+            .divider{
+                border-left: 1px solid silver;
+                margin-top: 15px;
+                margin-bottom: 15px;
+                margin-left: 25px;
+            }
+        }
+
+        .right{
+            display: flex;
+            align-items: center;
+            margin-left: 50px;
+            flex-basis: 50%;
+
+            input{
+                background-image: url("/images/icon.svg");
+                background-repeat: no-repeat;
+                outline: none;
+                padding-left: 34px;
+                font-size: 18px;
+                line-height: 30px;
+                color: #CAC8C7;
+                font-family: $regular-font;
+                background-position-y: center;
+                border: 0;
+                color: $dark-crayola;
+                width: 100%;
+
+                &::placeholder{
+                    color: $silver;
+                }
+            }
+        }
+
+    }
+
+    .events{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 31px;
+    }
+
+    .action{
+        display: flex;
+        gap: 12px;
+        font-size: 16px;
+        line-height: 19px;
+        color: $dark-crayola;
+        width: 213px;
+        height: 49px;
+        display: flex;
+        border: 1px solid #131616;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        margin-top: 70px;
+        cursor: pointer;
+        transition: $fast-transition-speed;
+
+        @include action-button-states;
+    }
+}

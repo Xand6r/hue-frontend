@@ -12,6 +12,30 @@
   }
 }
 
+@mixin action-button-states{
+  &:hover{
+    background-color: $dark-crayola;
+    color: white;
+    svg{
+        fill: $dark-crayola;
+        path{
+            stroke: white;
+        }
+    }
+}
+
+
+&:active{
+    background-color:white;
+    color: $dark-crayola;
+    svg{
+        fill: white;
+        path{
+            stroke: $dark-crayola;
+        }
+    }
+}
+}
 //   @include desktop() {
 //     .grid {
 //       width: 100%;
