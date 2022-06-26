@@ -1,12 +1,13 @@
-import React, { useEffect, useRef } from "react";
-import PropTypes from "prop-types";
 import { gsap } from "gsap";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import Image from "next/image";
+import PropTypes from "prop-types";
+import { useRouter } from "next/router";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import React, { useEffect, useRef, useState } from "react";
 
 import styles from "./navbar.module.scss";
+import Menu from "./menu";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,6 +18,7 @@ export default function Index({
 }) {
   const router = useRouter();
   const navRef = useRef(null);
+  const [openSideBar, setSideBarOpen] = useState(false);
 
   // wait until DOM has been rendered
   useEffect(() => {
@@ -42,9 +44,9 @@ export default function Index({
       },
     });
 
-    gsap.fromTo(
+    gsap.to(
       navRef.current,
-      { background: "rgba(148, 145, 142, 0)" },
+      // { background: "rgba(148, 145, 142, 0)" },
       {
         scrollTrigger: {
           trigger: selector("#homeimage"),
@@ -82,10 +84,13 @@ export default function Index({
       id="navbar"
       className={`${styles.navbar} ${styles[theme]}`}
     >
+      {/* mobile menu */}
+      {openSideBar && <Menu open={openSideBar} onClose={() => setSideBarOpen(false)} />}
+      {/* mobile menu */}
       {/* left menu items */}
       <section className={styles.left_section}>
         <div>
-        <Link href="/events">Event</Link>
+          <Link href="/events">Event</Link>
         </div>
         <div>Menu</div>
         <div>
@@ -114,7 +119,12 @@ export default function Index({
         <div className={styles.reservation_button}>Make Reservatvion</div>
       </section>
       {/* mobile section */}
-      <section className={styles.mobile_hamburger}>
+      <section
+        onClick={() => {
+          setSideBarOpen((s) => !s);
+        }}
+        className={styles.mobile_hamburger}
+      >
         <HamBurger />
       </section>
     </nav>

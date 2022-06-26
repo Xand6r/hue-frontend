@@ -1,0 +1,58 @@
+@import "styles/variables.scss";
+@import "styles/partials/_mixins.scss";
+
+.menu{
+    background-color: $spanish-grey;
+    padding-left: $tab-padding-x;
+    padding-right: $tab-padding-x;
+    padding-top: 15px;
+    padding-bottom: 58px;
+    position: absolute;
+    // height: 300px;
+    width: 100%;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    @include mobile-breakpoint(){
+        padding-left: $mobile-padding-x;
+        padding-right: $mobile-padding-x;
+    }
+
+    .top{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 28px;
+
+        svg{
+            cursor: pointer;
+        }
+    }
+
+    .options{
+        margin-bottom: 50px;
+        .items{
+            color: white;
+            padding-bottom: 15px;
+            padding-top: 15px;
+            border-bottom: 1px solid #CAC8C7;
+            font-size: 24px;
+            line-height: 35px;
+            cursor: pointer;
+        }
+    }
+
+    .reservation_button{
+        width: fit-content;
+        cursor: pointer;
+        padding: 0.9375rem  1.875rem;
+        background: #FFFFFF;
+        color: black;
+        transition: $fast-transition-speed;
+        font-size: 16px;
+        line-height: 19px;
+        @include action-button-states
+    }
+}

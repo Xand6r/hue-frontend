@@ -14,7 +14,7 @@
     color: white;
     position: sticky;
     top: 0;
-    z-index: 2;
+    z-index: 2;    
 
 
     @include tab-breakpoint(){
@@ -54,7 +54,7 @@
     }
 
     .logo_container{
-        z-index: 2;
+        z-index: 1;
         width: 6.9375rem;
         position: relative;
         height: 3.3125rem;
@@ -81,14 +81,6 @@
             background: #FFFFFF;
             color: black;
             transition: $fast-transition-speed;
-            // &:hover{
-            //     background-color: $dark-crayola;
-            //     color: white;
-            // }
-            // &:active{
-            //     background: #FFFFFF;
-            //     color: black;
-            // }
             @include action-button-states
         }
 
