@@ -1,49 +1,20 @@
 @import "styles/variables.scss";
 @import "styles/partials/_mixins.scss";
 
-.upcoming_wrapper{
-    padding-top: 9.125rem;
-    padding-bottom: 9.5625rem;
+.menu{
 
     width: fit-content;//todo remove me
-    margin: auto;
-    font-family: $regular-font;
+    margin: 72px auto;
 
-    @include tab-breakpoint(){
-    }
-
-    @include mobile-breakpoint(){
-        padding-top: 77px;
-        padding-top: 100px;
-    }
-
-    .title{
-        font-size: 2.25rem;
-        color: $dark-crayola;
-        
-        @include mobile-breakpoint(){
-            display: flex;
-            justify-content: space-between;
-            font-size: 24px;
-            line-height: 34px;
-        }
-
-        .mobile_search{
-            display: none;
-            cursor: pointer;
-            @include mobile-breakpoint(){
-                display: block;
-            }
-        }
-    }
 
     .filters{
+        font-family: $bold-font;
         border-top: 1px solid $silver;
         border-bottom: 1px solid $silver;
         margin-top: 35px;
         margin-bottom: 50px;
         display: flex;
-        font-family: $bold-font; 
+        
         @include mobile-breakpoint(){
             margin-top: 20px;
             margin-bottom: 27px;
@@ -131,42 +102,5 @@
 
     }
 
-    .events{
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 31px;
 
-        @include tab-breakpoint(){
-            grid-template-columns: 1fr 1fr;
-        }
-
-        @include mobile-breakpoint(){
-            grid-template-columns: 1fr;
-            gap: 25px;
-        }
-
-    }
-
-    .action{
-        display: flex;
-        gap: 12px;
-        font-size: 16px;
-        line-height: 19px;
-        color: $dark-crayola;
-        width: 213px;
-        height: 49px;
-        display: flex;
-        border: 1px solid #131616;
-        justify-content: center;
-        align-items: center;
-        margin: auto;
-        margin-top: 70px;
-        cursor: pointer;
-        transition: $fast-transition-speed;
-
-        @include action-button-states;
-        @include mobile-breakpoint(){
-            margin-top: 50px;
-        }
-    }
 }

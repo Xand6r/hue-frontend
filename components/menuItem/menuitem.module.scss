@@ -1,0 +1,41 @@
+@import "styles/variables.scss";
+@import "styles/partials/_mixins.scss";
+
+
+.menuitem{
+    border: 1px solid #E2CBC6;
+    padding: 1.5rem 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    width: 1137px;
+
+    .price{
+        color: $chestnut;
+        font-size: 1.375rem;
+        font-family: $bold-font;
+    }
+
+    .index{
+        font-family: $bold-font;
+        font-size: 22px;
+    }
+
+    .text_wrapper{
+        display: flex;
+        gap: 14px;
+
+        .content{
+            .content__heading{
+                font-family: $bold-font;
+                font-size: 22px;
+                span{
+                    font-size: 14px;
+                }
+            }
+            .content__subheading{
+                font-size: 18px;
+                font-family: $regular-font;
+            }
+        }
+    }
+}

@@ -26,7 +26,9 @@ export default function Menu({ open, onClose }) {
         <div className={styles.items}>
           <Link href="/events">Event</Link>
         </div>
-        <div className={styles.items}>Menu</div>
+        <div className={styles.items}>
+          <Link href="/menu">Menu</Link>
+        </div>
         <div className={styles.items}>
           <Link href="/gallery">Gallery</Link>
         </div>

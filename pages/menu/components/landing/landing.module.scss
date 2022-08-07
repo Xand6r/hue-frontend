@@ -1,0 +1,46 @@
+@import "styles/variables.scss";
+@import "styles/partials/_mixins.scss";
+
+.landing{
+    margin-top: -100px;
+    background-image: url("/images/about.png");
+    background-position: center;
+    background-color: rgba(19, 22, 22,  0.3);
+    background-blend-mode: multiply;
+    height: 40.3125rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    line-height: 4.75rem;
+
+
+    & > div{
+        max-width: 33.3125rem;
+        color: #FFFFFF;
+        font-size: 3.25rem;
+        font-family: $bold-font;
+    }
+
+    @include tab-breakpoint(){
+        margin-top: 0;
+        & > div{
+            margin-left: 0;
+        }
+    }
+
+    @include mobile-breakpoint(){
+        background-image: url("/images/aboutlandingmobile.png");
+        background-position: 0 -65px;
+        & > div{
+            line-height: 47px;
+            font-size: 32px;
+            max-width: 321px;
+        }
+    }
+
+    @include mobile-breakpoint(){
+        height: 363px;
+    }
+}

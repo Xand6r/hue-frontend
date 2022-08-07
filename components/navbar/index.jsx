@@ -92,7 +92,9 @@ export default function Index({
         <div>
           <Link href="/events">Event</Link>
         </div>
-        <div>Menu</div>
+        <div>
+          <Link href="/menu">Menu</Link>
+        </div>
         <div>
           <Link href="/gallery">Gallery</Link>
         </div>
