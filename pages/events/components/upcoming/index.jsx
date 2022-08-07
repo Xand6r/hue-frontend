@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styles from "./upcoming.module.scss";
 import Event from "components/eventcard";
+import { getRequest } from "api";
+import moment from "moment";
 
 const EVENTS = [
   {
@@ -14,22 +16,69 @@ const EVENTS = [
   },
 ];
 
-const filters = ["All", "Today", "This week", "This month"];
+const filters = ["all", "today", "this week", "this month"];
+const itemsPerPage = 6;
+const unitMap = {
+  today: "day",
+  "this week": "week",
+  "this month": "month",
+};
 
 export default function UpcomingEvents() {
-  const [activeTab, setActiveTab] = useState(null);
+  const [activeTab, setActiveTab] = useState("all");
   const [text, setText] = useState("");
+  const [loaded, setLoaded] = useState(false);
+  const [allEvents, setAllEvents] = useState([]);
+  const [events, setEvents] = useState([]);
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
+  const [isMore, setIsMore] = useState(false);
 
+  // load all events from DB
   useEffect(() => {
-    console.log({ text });
-  }, [text]);
+    (async function fetchAllEvents() {
+      const { data: response } = await getRequest("/event");
+      setAllEvents(response);
+      setLoaded(true);
+      setTotalPages(Math.ceil(response.length / itemsPerPage));
+    })();
+  }, []);
+
+  // on page change add more data
+  useEffect(() => {
+    if (!loaded) return;
+    const start = 0;
+    const stop = page * itemsPerPage;
+    let eventsToDisplay = allEvents.slice(start, stop);
+
+    // check for month filter
+    if (activeTab != "all") {
+      // filter by today
+      eventsToDisplay = eventsToDisplay.filter(({ day }) => {
+        return moment(day).isSame(moment(), unitMap[activeTab]);
+      });
+    }
+
+    // check for filter by text
+    if (text.length > 0) {
+      eventsToDisplay = eventsToDisplay.filter(({ name, description }) => {
+        return `${name} ${description}`
+          .toLocaleLowerCase()
+          .includes(text.toLocaleLowerCase());
+      });
+    }
+
+    setEvents(eventsToDisplay);
+  }, [page, loaded, text, activeTab]);
+
+  const incrementPagination = () => setPage((p) => p + 1);
 
   return (
     <div className={styles.upcoming_wrapper}>
       <div className={styles.title}>
         <span>Upcoming Events</span>
         <span className={styles.mobile_search}>
-            <MagnifyingGlass />
+          <MagnifyingGlass />
         </span>
       </div>
 
@@ -56,16 +105,20 @@ export default function UpcomingEvents() {
       </div>
 
       <div className={styles.events}>
-        {[...EVENTS, ...EVENTS].map((oneEvent) => {
-          const { imageName: image } = oneEvent;
+        {events.map((oneEvent) => {
+          const { image } = oneEvent;
           return <Event key={image} image={image} />;
         })}
       </div>
 
-      <div className={styles.action}>
-        <span> Load More Events </span>
-        <DownArrow />
-      </div>
+      {(page < totalPages) && (events.length) ? (
+        <div onClick={incrementPagination} className={styles.action}>
+          <span> Load More Events </span>
+          <DownArrow />
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 }

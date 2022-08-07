@@ -5,11 +5,12 @@
     padding-top: 9.125rem;
     padding-bottom: 9.5625rem;
 
-    width: fit-content;//todo remove me
     margin: auto;
     font-family: $regular-font;
+    width: 1137px;
 
     @include tab-breakpoint(){
+        width: fit-content;
     }
 
     @include mobile-breakpoint(){
@@ -71,6 +72,7 @@
                 border-bottom: 3px solid transparent;
                 color: $silver;
                 display: inline-block;
+                text-transform: capitalize;
 
                 @include mobile-breakpoint(){
                     padding-left: 13px;
