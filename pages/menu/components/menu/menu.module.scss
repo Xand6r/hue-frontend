@@ -5,7 +5,12 @@
 
     width: fit-content;//todo remove me
     margin: 72px auto;
+    width: 1137px;
 
+    .not_available{
+        font-size: 18px;
+        font-family: $regular-font;
+    }
 
     .filters{
         font-family: $bold-font;
@@ -42,6 +47,7 @@
                 border-bottom: 3px solid transparent;
                 color: $silver;
                 display: inline-block;
+                text-transform: capitalize;
 
                 @include mobile-breakpoint(){
                     padding-left: 13px;
@@ -102,5 +108,10 @@
 
     }
 
+    .menuitems{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
 
 }

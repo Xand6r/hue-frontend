@@ -1,12 +1,62 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import MenuItem from "components/menuItem";
 import styles from "./menu.module.scss";
+import { fetchClassics, fetchDrinks, fetchFood } from "./functions";
 
-const filters = ["Drinks", "Classics", "Food"];
+const filters = ["drinks", "classics", "food"];
 
+const INITIAL_DATA = {
+  drinks: [],
+  classics: [],
+  food: [],
+};
 export default function Menu() {
-  const [activeTab, setActiveTab] = useState(null);
+  const [activeTab, setActiveTab] = useState("drinks");
+  const [activeData, setActiveData] = useState([]);
   const [text, setText] = useState("");
+  const [state, setState] = useState(INITIAL_DATA);
+  const [initialLoaded, setInitialLoaded] = useState(null);
+
+  useEffect(() => {
+    // load the food, drink and classics data upon page load
+    (async function loadData() {
+      const [drinks, classics, food] = await Promise.all([
+        fetchDrinks(),
+        fetchClassics(),
+        fetchFood(),
+      ]);
+
+      setState({
+        drinks,
+        classics,
+        food,
+      });
+      setInitialLoaded(true);
+    })();
+  }, []);
+
+  useEffect(() => {
+    if (!initialLoaded) return;
+    const updatedData = state[activeTab];
+    setActiveData(updatedData);
+    setText("");
+  }, [activeTab, initialLoaded]);
+
+  useEffect(() => {
+    const { drinks, classics, food } = state;
+    const allMenu = [...drinks, ...classics, ...food];
+    if (text.length < 1) {
+      setActiveData(state[activeTab]);
+      return;
+    }
+    const filteredData = allMenu.filter((meniItem) => {
+      const searchParam = text.toLowerCase();
+      const { title, extraTitle, subtitle } = meniItem;
+      const searchText = `${title}${extraTitle}${subtitle}`.toLowerCase();
+      return searchText.includes(searchParam);
+    });
+    setActiveData(filteredData);
+  }, [text]);
 
   return (
     <div className={styles.menu}>
@@ -36,7 +86,14 @@ export default function Menu() {
 
       {/* menu items */}
       <div className={styles.menuitems}>
-        <MenuItem />
+        {activeData.map((data, index) => (
+          <MenuItem key={JSON.stringify(data)} index={index + 1} data={data} />
+        ))}
+        {!activeData.length ? (
+          <div className={styles.not_available}>No menu item available</div>
+        ) : (
+          ""
+        )}
       </div>
       {/* menu items */}
     </div>

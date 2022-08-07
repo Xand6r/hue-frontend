@@ -7,7 +7,7 @@
     padding: 1.5rem 1.25rem;
     display: flex;
     justify-content: space-between;
-    width: 1137px;
+    line-height: 23.21px;
 
     .price{
         color: $chestnut;
@@ -34,7 +34,9 @@
             }
             .content__subheading{
                 font-size: 18px;
+                margin-top: 5px;
                 font-family: $regular-font;
+                color: $spanish-grey;
             }
         }
     }
