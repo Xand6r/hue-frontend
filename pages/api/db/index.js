@@ -5,3 +5,4 @@ export const connectToDB = () =>
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
+
