@@ -14,3 +14,13 @@ export const fetchFood = async () => {
   const { data: response } = await getRequest("/menu/food");
   return response;
 };
+
+
+import React from 'react'
+
+export default function functions() {
+  return (
+    <div>functions</div>
+  )
+}
+
