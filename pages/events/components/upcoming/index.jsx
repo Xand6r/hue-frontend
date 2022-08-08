@@ -32,7 +32,6 @@ export default function UpcomingEvents() {
   const [events, setEvents] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
-  const [isMore, setIsMore] = useState(false);
 
   // load all events from DB
   useEffect(() => {
@@ -111,7 +110,7 @@ export default function UpcomingEvents() {
         })}
       </div>
 
-      {(page < totalPages) && (events.length) ? (
+      {page < totalPages && events.length ? (
         <div onClick={incrementPagination} className={styles.action}>
           <span> Load More Events </span>
           <DownArrow />
