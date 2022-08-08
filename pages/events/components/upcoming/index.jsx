@@ -36,7 +36,7 @@ export default function UpcomingEvents() {
   // load all events from DB
   useEffect(() => {
     (async function fetchAllEvents() {
-      const { data: response } = await getRequest("/event");
+      const { data: response } = await getRequest("/events");
       setAllEvents(response);
       setLoaded(true);
       setTotalPages(Math.ceil(response.length / itemsPerPage));

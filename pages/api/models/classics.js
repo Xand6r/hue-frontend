@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const classicsdataSchema = new mongoose.Schema(
+const dataSchema = new mongoose.Schema(
   {
     title: String,
     extraTitle: String,
