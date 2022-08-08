@@ -9,6 +9,21 @@
     padding-top: 4.8125rem;
     padding-bottom: 12.5rem;
 
+    @include tab-breakpoint(){
+        width: unset;
+        padding-top: 14px;
+        padding-bottom: 91px;
+        padding-left: $tab-padding-x;
+        padding-right: $tab-padding-x;
+    }
+
+
+    @include mobile-breakpoint(){
+        width: unset;
+        padding-left: $mobile-padding-x;
+        padding-right: $mobile-padding-x;
+    }
+
     .heading{
         display: flex;
         align-items: flex-end;
@@ -16,6 +31,10 @@
         border-bottom: 1px solid #CAC8C7;
         padding-bottom: 2.1875rem;
         margin-bottom: 3.125rem;
+        @include mobile-breakpoint(){
+            padding-bottom: 16px;
+            margin-bottom: 24px;
+        }
 
 
         & > div{
@@ -25,9 +44,14 @@
         }
 
         & > span{
+            font-family: $regular-font;
             color: $dark-crayola;
             font-size: 2.25rem;
             line-height: 3.0625rem;
+            @include mobile-breakpoint(){
+                font-size: 24px;
+                line-height: 33px;
+            }
         }
     }
 
@@ -37,6 +61,12 @@
         flex-wrap: wrap;
         max-height: 111.125rem;
         gap: 6px;
+
+        @include tab-breakpoint(){
+            flex-direction: row;
+            justify-content: center;
+            max-height: fit-content;
+        }
     }
 }
 
@@ -46,9 +76,9 @@
     background-color:$silver;
     position: relative;
 
-    // img{
-    //     object-fit: cover;
-    // }
+    img{
+        object-fit: cover;
+    }
 
     // @include mobile-breakpoint(){
     //     width: 317px;
@@ -62,9 +92,9 @@
     background-color: $silver;
     position: relative;
 
-    // img{
-    //     object-fit: cover;
-    // }
+    img{
+        object-fit: cover;
+    }
 
     // @include mobile-breakpoint(){
     //     width: 128px;
@@ -78,9 +108,9 @@
     background-color: $silver;
     position: relative;
 
-    // img{
-    //     object-fit: cover;
-    // }
+    img{
+        object-fit: cover;
+    }
 
     // @include mobile-breakpoint(){
     //     width: 128px;
