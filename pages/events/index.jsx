@@ -17,9 +17,9 @@ export default function Events(props) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const { data: response } = await getRequest("/events");
   const allEvents = response;
   const totalPages = Math.ceil(response.length / itemsPerPage);
-  return { props: { totalPages, allEvents } };
+  return { props: { totalPages, allEvents }, revalidate: 3600 };
 }

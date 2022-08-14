@@ -20,7 +20,7 @@ export default function index({ menuState }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   // Fetch data from external API
   const [drinks, classics, food] = await Promise.all([
     fetchDrinks(),
@@ -33,5 +33,5 @@ export async function getStaticProps() {
     food,
   };
   // Pass data to the page via props
-  return { props: { menuState: state } };
+  return { props: { menuState: state }, revalidate: 3600 };
 }

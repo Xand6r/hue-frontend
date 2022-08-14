@@ -9,9 +9,11 @@ export default function Home(props) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const { data: response } = await getRequest("/events?limit=3");
   const { data: eventResponse } = await getRequest("/galleryevent?limit=15");
 
-  return { props: { events: response, gallery: eventResponse } };
+  return {
+    props: { events: response, gallery: eventResponse },
+  };
 }
