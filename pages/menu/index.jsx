@@ -33,5 +33,5 @@ export async function getServerSideProps() {
     food,
   };
   // Pass data to the page via props
-  return { props: { menuState: state }, revalidate: 3600 };
+  return { props: { menuState: state } };
 }

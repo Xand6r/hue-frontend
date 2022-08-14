@@ -21,7 +21,7 @@ export async function getServerSideProps(context) {
     images,
   } = response;
 
-  return { props: { events: images, title: title }, revalidate: 3600 };
+  return { props: { events: images, title: title }};
 }
 
 // export const getStaticPaths = async () => {
