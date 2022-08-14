@@ -11,13 +11,13 @@ export default function Events(props) {
     <div>
       <NavBar />
       <Landing />
-      <UpcomingEvents {...props}/>
+      <UpcomingEvents {...props} />
       <Footer />
     </div>
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const { data: response } = await getRequest("/events");
   const allEvents = response;
   const totalPages = Math.ceil(response.length / itemsPerPage);

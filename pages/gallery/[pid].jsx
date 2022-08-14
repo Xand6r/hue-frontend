@@ -13,7 +13,7 @@ export default function Gallery({ title, events }) {
   );
 }
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
   const { pid } = context.query;
   const { data: response } = await getRequest(`/gallery?eventid=${pid}`);
   const {

@@ -20,7 +20,7 @@ export default function index({ menuState }) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   // Fetch data from external API
   const [drinks, classics, food] = await Promise.all([
     fetchDrinks(),
