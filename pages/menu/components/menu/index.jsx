@@ -10,37 +10,17 @@ const INITIAL_DATA = {
   classics: [],
   food: [],
 };
-export default function Menu() {
+
+export default function Menu({ state }) {
   const [activeTab, setActiveTab] = useState("drinks");
   const [activeData, setActiveData] = useState([]);
   const [text, setText] = useState("");
-  const [state, setState] = useState(INITIAL_DATA);
-  const [initialLoaded, setInitialLoaded] = useState(null);
 
   useEffect(() => {
-    // load the food, drink and classics data upon page load
-    (async function loadData() {
-      const [drinks, classics, food] = await Promise.all([
-        fetchDrinks(),
-        fetchClassics(),
-        fetchFood(),
-      ]);
-
-      setState({
-        drinks,
-        classics,
-        food,
-      });
-      setInitialLoaded(true);
-    })();
-  }, []);
-
-  useEffect(() => {
-    if (!initialLoaded) return;
     const updatedData = state[activeTab];
     setActiveData(updatedData);
     setText("");
-  }, [activeTab, initialLoaded]);
+  }, [activeTab]);
 
   useEffect(() => {
     const { drinks, classics, food } = state;

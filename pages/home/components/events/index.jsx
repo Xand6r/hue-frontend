@@ -3,22 +3,12 @@ import styles from "./events.module.scss";
 import Slider from "react-slick";
 import RightArrow from "components/svg/rightArrow";
 import ProgressBar from "components/progressbar";
+import { useRouter } from "next/router";
 
 import Event from "components/eventcard";
 
-const EVENTS = [
-  {
-    imageName: "/images/event1.png",
-  },
-  {
-    imageName: "/images/event2.png",
-  },
-  {
-    imageName: "/images/event3.png",
-  },
-];
+export default function Index({events}) {
 
-export default function Index() {
   const [progress, setProgress] = useState(30);
   const settings = {
     infinite: false,
@@ -27,7 +17,7 @@ export default function Index() {
     centerMode: false,
     beforeChange: (index) => {
       index++;
-      setProgress(index * 100 / 3);
+      setProgress((index * 100) / 3);
     },
     responsive: [
       {
@@ -37,15 +27,24 @@ export default function Index() {
           slidesToShow: 1,
           slidesToScroll: 1,
           centerMode: false,
-        }
-      }
-    ]
+        },
+      },
+    ],
   };
+
+  const router = useRouter();
+
   return (
     <div id="eventcomponent" className={styles.event}>
       <div className={styles.top_section}>
         <div className={styles.header__text}>Upcoming Events</div>
-        <div className={styles.action_button}>
+        <div
+          onClick={(e) => {
+            e.preventDefault();
+            router.push("/events");
+          }}
+          className={styles.action_button}
+        >
           See All Events <RightArrow />
         </div>
       </div>
@@ -55,8 +54,8 @@ export default function Index() {
       </div>
 
       <div className={styles.bottom_section}>
-        {EVENTS.map((oneEvent) => {
-          const { imageName: image } = oneEvent;
+        {events.map((oneEvent) => {
+          const { image } = oneEvent;
           return <Event key={image} image={image} />;
         })}
       </div>
@@ -64,8 +63,8 @@ export default function Index() {
       {/* mobile bottom section */}
       <div className={styles.bottom_section_mobile}>
         <Slider {...settings}>
-          {EVENTS.map((oneEvent) => {
-            const { imageName: image } = oneEvent;
+          {events.map((oneEvent) => {
+            const { image } = oneEvent;
             return <Event key={image} image={image} />;
           })}
         </Slider>

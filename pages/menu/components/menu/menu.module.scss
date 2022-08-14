@@ -11,6 +11,10 @@
         width: fit-content;
     }
 
+    @include mobile-breakpoint(){
+        width: 100%;
+    }
+
     .not_available{
         font-size: 18px;
         font-family: $regular-font;

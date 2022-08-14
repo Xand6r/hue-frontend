@@ -57,10 +57,10 @@
 
     .gallery{
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         flex-wrap: wrap;
-        max-height: 111.125rem;
-        gap: 6px;
+        // max-height: 111.125rem;
+        gap: 5px;
 
         @include tab-breakpoint(){
             flex-direction: row;
@@ -70,39 +70,39 @@
     }
 }
 
-.portrait{
-    width: 373px;
-    height: 440px;
-    background-color:$silver;
-    position: relative;
+// .portrait{
+//     width: 373px;
+//     height: 440px;
+//     background-color:$silver;
+//     position: relative;
 
-    img{
-        object-fit: cover;
-    }
+//     img{
+//         object-fit: cover;
+//     }
 
-    // @include mobile-breakpoint(){
-    //     width: 317px;
-    //     height: 188px;
-    // }
-}
+//     // @include mobile-breakpoint(){
+//     //     width: 317px;
+//     //     height: 188px;
+//     // }
+// }
 
-.square{
-    width: 373px;
-    height: 373px;
-    background-color: $silver;
-    position: relative;
+// .square{
+//     width: 373px;
+//     height: 373px;
+//     background-color: $silver;
+//     position: relative;
 
-    img{
-        object-fit: cover;
-    }
+//     img{
+//         object-fit: cover;
+//     }
 
-    // @include mobile-breakpoint(){
-    //     width: 128px;
-    //     height: 188px;
-    // }
-}
+//     // @include mobile-breakpoint(){
+//     //     width: 128px;
+//     //     height: 188px;
+//     // }
+// }
 
-.landscape{
+.event_item{
     width: 373px;
     height: 249px;
     background-color: $silver;
@@ -112,8 +112,42 @@
         object-fit: cover;
     }
 
-    // @include mobile-breakpoint(){
-    //     width: 128px;
-    //     height: 188px;
-    // }
+}
+.nocontent{
+    font-size: 1.5em;
+    font-family: $bold-font;
+}
+
+.overlay{
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    padding: 30px 25px;
+    background-color: black;
+    color: white;
+    font-family: $medium-font;
+    // opacity: 0.8;
+    opacity: 0;
+    transition: $fast-transition-speed;
+
+    .title{
+        font-family: $bold-font;
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+    .description{
+        font-size: 1rem;
+        max-width: 80%;
+        line-height: 25px;
+    }
+
+    &:hover{
+        opacity: 0.85;
+    }
+
+    &:active{
+        opacity: 0.75;
+    }
 }

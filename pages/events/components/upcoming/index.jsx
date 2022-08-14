@@ -4,48 +4,36 @@ import Event from "components/eventcard";
 import { getRequest } from "api";
 import moment from "moment";
 
-const EVENTS = [
-  {
-    imageName: "/images/event1.png",
-  },
-  {
-    imageName: "/images/event2.png",
-  },
-  {
-    imageName: "/images/event3.png",
-  },
-];
-
 const filters = ["all", "today", "this week", "this month"];
-const itemsPerPage = 6;
+export const itemsPerPage = 6;
 const unitMap = {
   today: "day",
   "this week": "week",
   "this month": "month",
 };
 
-export default function UpcomingEvents() {
+export default function UpcomingEvents({ totalPages, allEvents }) {
   const [activeTab, setActiveTab] = useState("all");
   const [text, setText] = useState("");
-  const [loaded, setLoaded] = useState(false);
-  const [allEvents, setAllEvents] = useState([]);
+  // const [loaded, setLoaded] = useState(false);
+  // const [allEvents, setAllEvents] = useState([]);
   const [events, setEvents] = useState([]);
   const [page, setPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(0);
+  // const [totalPages, setTotalPages] = useState(0);
 
-  // load all events from DB
-  useEffect(() => {
-    (async function fetchAllEvents() {
-      const { data: response } = await getRequest("/events");
-      setAllEvents(response);
-      setLoaded(true);
-      setTotalPages(Math.ceil(response.length / itemsPerPage));
-    })();
-  }, []);
+  // // load all events from DB
+  // useEffect(() => {
+  //   (async function fetchAllEvents() {
+  //     const { data: response } = await getRequest("/events");
+  //     setAllEvents(response);
+  //     setLoaded(true);
+  //     setTotalPages(Math.ceil(response.length / itemsPerPage));
+  //   })();
+  // }, []);
 
   // on page change add more data
   useEffect(() => {
-    if (!loaded) return;
+    // if (!loaded) return;
     const start = 0;
     const stop = page * itemsPerPage;
     let eventsToDisplay = allEvents.slice(start, stop);
@@ -68,7 +56,7 @@ export default function UpcomingEvents() {
     }
 
     setEvents(eventsToDisplay);
-  }, [page, loaded, text, activeTab]);
+  }, [page, text, activeTab]);
 
   const incrementPagination = () => setPage((p) => p + 1);
 
@@ -108,6 +96,9 @@ export default function UpcomingEvents() {
           const { image } = oneEvent;
           return <Event key={image} image={image} />;
         })}
+        {!events.length ? (<div className={styles.nomessage}>
+          No events match your query
+        </div>) : ""}
       </div>
 
       {page < totalPages && events.length ? (

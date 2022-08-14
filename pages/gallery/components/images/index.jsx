@@ -1,97 +1,57 @@
 import React from "react";
+import { useRouter } from "next/router";
 import Image from "next/image";
 
 import PropTypes from "prop-types";
 import styles from "./images.module.scss";
 
-export default function Images() {
+export default function Images({ events, title = "Gallery", overlay }) {
   return (
     <div className={styles.images}>
       <div className={styles.heading}>
-        <span>Gallery</span>
+        <span>{title}</span>
         <div>
           <Image src="/images/galleryicon.svg" layout="fill" />
         </div>
       </div>
 
       <div className={styles.gallery}>
-        {IMAGES.map(({ image, orientation }) => (
-          <ImageRender key={image} imageLink={image} orientation={orientation} />
+        {events.map((event) => (
+          <ImageRender key={event._id} event={event} overlay={overlay} />
         ))}
+        {!events.length ? (
+          <div className={styles.nocontent}>No images for this event</div>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );
 }
 
-function ImageRender({ imageLink, orientation }) {
+function ImageRender({ event, overlay }) {
+  const { image, name, description, _id, url } = event;
+  const router = useRouter();
+
   return (
-    <div className={styles[orientation]}>
-      <Image src={imageLink} layout="fill" />
+    <div
+      onClick={() => {
+        overlay && router.push(`/gallery/${_id}`);
+      }}
+      style={overlay ? { cursor: "pointer" } : { cursor: "auto" }}
+      className={styles.event_item}
+    >
+      <Image src={image || url} layout="fill" />
+      {overlay && (
+        <div className={styles.overlay}>
+          <div className={styles.title}>{name}</div>
+          <div className={styles.description}>{description}</div>
+        </div>
+      )}
     </div>
   );
 }
 ImageRender.propTypes = {
   imageLink: PropTypes.string.isRequired,
-  orientation: PropTypes.oneOf(["portrait", "square", "landscape"]).isRequired,
 };
 ImageRender.defaultProps = {};
-
-
-const IMAGES = [
-  {
-    image: "/gallery/1.png",
-    orientation: "landscape",
-  },
-  {
-    image: "/gallery/2.png",
-    orientation: "portrait",
-  },
-  {
-    image: "/gallery/3.png",
-    orientation: "landscape",
-  },
-  {
-    image: "/gallery/4.png",
-    orientation: "portrait",
-  },
-  {
-    image: "/gallery/5.png",
-    orientation: "portrait",
-  },
-  {
-    image: "/gallery/6.png",
-    orientation: "landscape",
-  },
-  {
-    image: "/gallery/7.png",
-    orientation: "square",
-  },
-  {
-    image: "/gallery/8.png",
-    orientation: "landscape",
-  },
-  {
-    image: "/gallery/9.png",
-    orientation: "square",
-  },
-  {
-    image: "/gallery/10.png",
-    orientation: "landscape",
-  },
-  {
-    image: "/gallery/11.png",
-    orientation: "square",
-  },
-  {
-    image: "/gallery/12.png",
-    orientation: "landscape",
-  },
-  {
-    image: "/gallery/13.png",
-    orientation: "square",
-  },
-  {
-    image: "/gallery/14.png",
-    orientation: "landscape",
-  },
-];

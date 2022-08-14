@@ -9,17 +9,16 @@ import Private from "./components/private";
 import Footer from "components/footer";
 import Gallery from "./components/gallery";
 
-function HomePage() {
+function HomePage({ events }) {
   // define the selectors
   const homeComponentRef = useRef();
   let q = gsap.utils.selector(homeComponentRef);
-
   return (
     <div ref={homeComponentRef}>
       <NavBar selector={q} useFadeDownAnimation />
       <Landing selector={q} />
       <SubLanding />
-      <Events />
+      <Events events={events} />
       <Private />
       <Gallery />
       <Footer />
