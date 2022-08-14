@@ -8,30 +8,24 @@ import ProgressBar from "components/progressbar";
 import RightArrow from "components/svg/rightArrow";
 import LeftArrow from "components/svg/leftArrow";
 import styles from "./gallery.module.scss";
+import { useRouter } from "next/router";
+import { ImageRender } from "pages/gallery/components/images";
 
-const IMAGE_DETAILS = [
-  { imageLink: "/images/firstimage.png", orientation: "landscape" },
-  { imageLink: "/images/secondimage.png", orientation: "portrait" },
-  { imageLink: "/images/thirdimage.png", orientation: "portrait" },
-  { imageLink: "/images/firstimage.png", orientation: "landscape" },
-  { imageLink: "/images/thirdimage.png", orientation: "portrait" },
-
-];
-
-export default function Gallery() {
-  const [progress, setProgress] = useState((1 * 100) / IMAGE_DETAILS.length);
+export default function Gallery({ gallery = [] }) {
+  const [progress, setProgress] = useState((1 * 100) / gallery.length);
   const sliderRef = useRef(null);
+  const router = useRouter();
 
   const settings = {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 2,
+    slidesToShow: 3,
     slidesToScroll: 1,
-    variableWidth: true,
+    // variableWidth: true,
     beforeChange: (index) => {
       index++;
-      setProgress((index * 100) / IMAGE_DETAILS.length);
+      setProgress((index * 100) / gallery.length);
     },
     responsive: [
       {
@@ -53,7 +47,10 @@ export default function Gallery() {
     <div className={styles.gallery}>
       <div className={styles.top_section}>
         <div className={styles.header__text}>Gallery</div>
-        <div className={styles.action_button}>
+        <div
+          onClick={() => router.push("/gallery")}
+          className={styles.action_button}
+        >
           See Full Gallery <RightArrow />
         </div>
       </div>
@@ -65,8 +62,8 @@ export default function Gallery() {
       <section className={styles.image_container_wrapper}>
         {/* <div className={styles.image_container}> */}
         <Slider ref={sliderRef} {...settings}>
-          {IMAGE_DETAILS.map((oneImage) => (
-            <ImageRender key={oneImage.orientation} {...oneImage} />
+          {gallery.map((oneevent) => (
+            <ImageRender key={oneevent._id} event={oneevent} overlay />
           ))}
         </Slider>
         {/* </div> */}
@@ -103,21 +100,8 @@ export default function Gallery() {
       </section>
 
       <div className={styles.action_button_mobile}>
-          See Full Gallery <RightArrow />
-        </div>
+        See Full Gallery <RightArrow />
+      </div>
     </div>
   );
 }
-
-function ImageRender({ imageLink, orientation }) {
-  return (
-    <div className={styles[orientation]}>
-      <Image src={imageLink} layout="fill" />
-    </div>
-  );
-}
-ImageRender.propTypes = {
-  imageLink: PropTypes.string,
-  orientation: PropTypes.oneOf(["portrait", "landscape"]).isRequired,
-};
-ImageRender.defaultProps = {};

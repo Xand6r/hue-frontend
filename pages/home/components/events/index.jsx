@@ -7,8 +7,7 @@ import { useRouter } from "next/router";
 
 import Event from "components/eventcard";
 
-export default function Index({events}) {
-
+export default function Index({ events = [] }) {
   const [progress, setProgress] = useState(30);
   const settings = {
     infinite: false,

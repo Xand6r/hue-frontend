@@ -16,6 +16,6 @@ export default function Gallery({ events }) {
 }
 
 export async function getServerSideProps() {
-  const { data: response } = await getRequest("/events?limit=15");
-  return { props: { events: response } };
+  const { data: eventResponse } = await getRequest("/galleryevent?limit=15");
+  return { props: { events: eventResponse } };
 }

@@ -5,7 +5,11 @@ import Image from "next/image";
 import PropTypes from "prop-types";
 import styles from "./images.module.scss";
 
-export default function Images({ events, title = "Gallery", overlay }) {
+export default function Images({
+  events = [],
+  title = "Gallery",
+  overlay = false,
+}) {
   return (
     <div className={styles.images}>
       <div className={styles.heading}>
@@ -29,7 +33,7 @@ export default function Images({ events, title = "Gallery", overlay }) {
   );
 }
 
-function ImageRender({ event, overlay }) {
+export function ImageRender({ event = [], overlay = false }) {
   const { image, name, description, _id, url } = event;
   const router = useRouter();
 
@@ -51,7 +55,3 @@ function ImageRender({ event, overlay }) {
     </div>
   );
 }
-ImageRender.propTypes = {
-  imageLink: PropTypes.string.isRequired,
-};
-ImageRender.defaultProps = {};

@@ -11,5 +11,7 @@ export default function Home(props) {
 
 export async function getServerSideProps() {
   const { data: response } = await getRequest("/events?limit=3");
-  return { props: { events: response } };
+  const { data: eventResponse } = await getRequest("/galleryevent?limit=15");
+
+  return { props: { events: response, gallery: eventResponse } };
 }

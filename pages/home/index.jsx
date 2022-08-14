@@ -9,7 +9,7 @@ import Private from "./components/private";
 import Footer from "components/footer";
 import Gallery from "./components/gallery";
 
-function HomePage({ events }) {
+function HomePage({ events = [], gallery = [] }) {
   // define the selectors
   const homeComponentRef = useRef();
   let q = gsap.utils.selector(homeComponentRef);
@@ -20,7 +20,7 @@ function HomePage({ events }) {
       <SubLanding />
       <Events events={events} />
       <Private />
-      <Gallery />
+      <Gallery gallery={gallery} />
       <Footer />
     </div>
   );

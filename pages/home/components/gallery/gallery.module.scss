@@ -200,7 +200,7 @@
 }
 
 .landscape{
-    width: 42.0625rem;
+    width: 35.0625rem;
     height: 28.0625rem;
     background-color:$silver;
     position: relative;
@@ -217,21 +217,4 @@
     }
 }
 
-.portrait{
-    width: 23.8125rem;
-    height: 28.0625rem;
-    background-color: $silver;
-    position: relative;
-    margin-left: 7.5px;
-    margin-right: 7.5px;
 
-
-    img{
-        object-fit: cover;
-    }
-
-    @include mobile-breakpoint(){
-        width: 128px;
-        height: 188px;
-    }
-}
