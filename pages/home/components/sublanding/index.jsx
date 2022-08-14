@@ -7,7 +7,7 @@ export default function index() {
     <div className={styles.sublanding}>
       <section className={styles.left_section}>
         <div className={styles.heading}>
-          Founded on luxury ...and you in mind
+          Founded on luxury... <br /> and you in mind
         </div>
       </section>
       <section className={styles.right_section}>

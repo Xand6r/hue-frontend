@@ -33,12 +33,12 @@
         align-items: center;
         gap: 0.5rem;
         margin-bottom: 1rem;
-        font-size: 0.875rem;
+        font-size: 1rem;
     }
 
     .title{
         color: #000000;
-        font-size: 1.375rem;
+        font-size: 1.5rem;
         line-height: 1.625rem;
 
         @include tab-breakpoint(){
@@ -47,7 +47,7 @@
     }
 
     .subtitle{
-        font-size: 0.875rem;
+        font-size: 1rem;
         color: $spanish-grey;
         margin-top: 1.25rem;
 
@@ -71,6 +71,7 @@
             width: fit-content;
             font-size: 1rem;
             cursor: pointer;
+            font-family: $bold-font;
         }
         span{
             font-size: 1rem;

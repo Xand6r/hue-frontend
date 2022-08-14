@@ -39,8 +39,8 @@ export default function Form() {
             <input type="text" placeholder="Enter phone number" />
           </div>
           <div className={styles.input_wrapper}>
-            <span>Phone</span>
-            <textarea placeholder="Enter phone number" />
+            <span>Message</span>
+            <textarea placeholder="Enter message" />
           </div>
         </form>
         <div className={styles.action}>

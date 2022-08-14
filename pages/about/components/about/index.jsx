@@ -21,12 +21,6 @@ export default function index() {
           operations.
         </span>
 
-        <span>
-          Our founders Femi Masha and Jeff Osuji have over 15 years’ worth of
-          experience in the entertainment and hospitality industry. We are
-          driven by our values of trust, passion, innovation, customer-focus,
-          and luxury to deliver an unmatched social experience.
-        </span>
       </div>
     </div>
   );

@@ -7,6 +7,10 @@
     margin: 72px auto;
     width: 1137px;
 
+    @include tab-breakpoint(){
+        width: fit-content;
+    }
+
     .not_available{
         font-size: 18px;
         font-family: $regular-font;
@@ -112,6 +116,17 @@
         display: flex;
         flex-direction: column;
         gap: 20px;
+
+        @include tab-breakpoint(){
+            padding-left: $tab-padding-x;
+            padding-right: $tab-padding-x;;
+        }
+
+        @include mobile-breakpoint(){
+            padding-left: $mobile-padding-x;
+            padding-right: $mobile-padding-x;;
+        }
+
     }
 
 }

@@ -49,6 +49,11 @@
             max-width: 29.8125rem;
             font-family: $regular-font;
             line-height: 4.75rem;
+            min-width: 29.8125rem;
+
+            @include tab-breakpoint(){
+                max-width: unset;
+            }
 
             @include mobile-breakpoint(){
                 font-size: 32px;

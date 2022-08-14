@@ -8,11 +8,18 @@
     display: flex;
     justify-content: space-between;
     line-height: 23.21px;
+    @include mobile-breakpoint(){
+        flex-direction: column;
+        gap: 15px;
+    }
 
     .price{
         color: $chestnut;
         font-size: 1.375rem;
         font-family: $bold-font;
+        @include mobile-breakpoint(){
+            margin-left: 25px;
+        }
     }
 
     .index{
@@ -28,6 +35,10 @@
             .content__heading{
                 font-family: $bold-font;
                 font-size: 22px;
+                text-transform: capitalize;
+                @include mobile-breakpoint(){
+                    line-height: 1.4em;
+                }
                 span{
                     font-size: 14px;
                 }
