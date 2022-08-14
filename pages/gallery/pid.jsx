@@ -13,13 +13,13 @@ export default function Gallery({ title, events }) {
   );
 }
 
-export async function getStaticProps(context) {
-  const { pid } = context.query;
-  const { data: response } = await getRequest(`/gallery?eventid=${pid}`);
-  const {
-    event: { name: title },
-    images,
-  } = response;
+// export async function getStaticProps(context) {
+//   const { pid } = context.query;
+//   const { data: response } = await getRequest(`/gallery?eventid=${pid}`);
+//   const {
+//     event: { name: title },
+//     images,
+//   } = response;
 
-  return { props: { events: images, title: title } };
-}
+//   return { props: { events: images, title: title } };
+// }
