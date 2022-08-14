@@ -54,8 +54,16 @@ export default function Index({ events = [] }) {
 
       <div className={styles.bottom_section}>
         {events.map((oneEvent) => {
-          const { image } = oneEvent;
-          return <Event key={image} image={image} />;
+          const { image, name, description, day, _id } = oneEvent;
+          return (
+            <Event
+              key={_id}
+              name={name}
+              image={image}
+              description={description}
+              day={day}
+            />
+          );
         })}
       </div>
 
@@ -63,8 +71,16 @@ export default function Index({ events = [] }) {
       <div className={styles.bottom_section_mobile}>
         <Slider {...settings}>
           {events.map((oneEvent) => {
-            const { image } = oneEvent;
-            return <Event key={image} image={image} />;
+            const { image, name, description, day, _id } = oneEvent;
+            return (
+              <Event
+                key={_id}
+                name={name}
+                image={image}
+                description={description}
+                day={day}
+              />
+            );
           })}
         </Slider>
       </div>

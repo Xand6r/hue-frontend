@@ -93,12 +93,22 @@ export default function UpcomingEvents({ totalPages, allEvents }) {
 
       <div className={styles.events}>
         {events.map((oneEvent) => {
-          const { image } = oneEvent;
-          return <Event key={image} image={image} />;
+          const { image, name, description, day, _id } = oneEvent;
+          return (
+            <Event
+              key={_id}
+              name={name}
+              image={image}
+              description={description}
+              day={day}
+            />
+          );
         })}
-        {!events.length ? (<div className={styles.nomessage}>
-          No events match your query
-        </div>) : ""}
+        {!events.length ? (
+          <div className={styles.nomessage}>No events match your query</div>
+        ) : (
+          ""
+        )}
       </div>
 
       {page < totalPages && events.length ? (
