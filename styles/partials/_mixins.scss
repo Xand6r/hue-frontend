@@ -14,6 +14,7 @@
 
 @mixin action-button-states{
   transition: $fast-transition-speed;
+  font-family: $bold-font !important;
   &:hover{
     background-color: $dark-crayola;
     color: white;
@@ -41,6 +42,7 @@
 
 @mixin white-button-states{
   transition: $fast-transition-speed;
+  font-family: $bold-font !important;
   &:hover{
     color: white;
     background-color: $dark-crayola;

@@ -14,6 +14,7 @@
     top: 0;
     left: 0;
     right: 0;
+    // font-family: $bold-font;
 
     @include mobile-breakpoint(){
         padding-left: $mobile-padding-x;
